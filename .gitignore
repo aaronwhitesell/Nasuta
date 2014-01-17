@@ -24,7 +24,6 @@
 *.tlog
 *.log
 *.lastbuildstate
-*.vcxproj.user
 
 # Excluded Directories
 SDK/
