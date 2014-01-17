@@ -1,0 +1,32 @@
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+# Visual Studio 2012
+# Base Project
+# sdf, stores information for Visual Studios Intellisense
+*.sdf
+# suo, solution options file (hidden)
+*.suo
+
+# Compiled Project
+# exe, executable
+*.exe
+# pdb, program debug database
+*.pdb
+# ilk, incremental link file
+*.ilk
+# obj, object file, compiled but not linked
+*.obj
+# idb - state file
+*.idb
+*.opensdf
+*.tlog
+*.log
+*.lastbuildstate
+*.vcxproj.user
+
+# Excluded Directories
+SDK/
+Code/Debug/
+Code/Release/

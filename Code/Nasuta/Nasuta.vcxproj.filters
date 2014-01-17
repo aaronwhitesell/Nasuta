@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{07e1e147-35b3-46ad-a916-b716ddaa3709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Graphics">
+      <UniqueIdentifier>{6e2742c1-2341-4d90-904f-4f67147c5e74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\GUI">
+      <UniqueIdentifier>{634515f1-3ce9-4f58-9a8d-e4d11b0a0787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\State">
+      <UniqueIdentifier>{fc830702-a1b0-4e4c-9f32-c955fff1268e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\SceneNode">
+      <UniqueIdentifier>{da43a494-aeb0-4849-bd9c-edf8b0ab4a82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Sound">
+      <UniqueIdentifier>{14f9ba3d-044f-4fa8-b1fe-8100e08de1b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{1e66ca88-1b95-4002-acbd-da4db2d098cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\SceneNode">
+      <UniqueIdentifier>{e27eb3a2-bfb2-42d5-9075-32092755ff7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\State">
+      <UniqueIdentifier>{91553e51-b996-487a-8c6c-76881ad19cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{d56a03b4-7679-4eda-bdeb-613c2e4bb031}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{9e851f7d-54e4-4011-82dd-7f074281c103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\State">
+      <UniqueIdentifier>{c73fffdf-38eb-47b7-8ed2-ca30b113a452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\SceneNode">
+      <UniqueIdentifier>{a1d583ab-7c61-4ec6-afc8-20f56208ca0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Graphics">
+      <UniqueIdentifier>{de014f90-58f8-440d-8bad-637e6e2958f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\GUI">
+      <UniqueIdentifier>{f60452c3-a2d5-4635-bf96-cdb929ef6f1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\State">
+      <UniqueIdentifier>{1505c996-16c5-47b0-9310-ba805959d61b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Sound">
+      <UniqueIdentifier>{05460d66-a153-486a-b5e1-7bd71a479ba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\SceneNode">
+      <UniqueIdentifier>{c5a19d8b-98e6-4697-961b-4610d92213a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Command">
+      <UniqueIdentifier>{7ddcd74b-c851-4684-abb1-aa802a2f2f5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Resource">
+      <UniqueIdentifier>{c3363f63-90d9-40e7-9298-d7aa26ea00f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Command">
+      <UniqueIdentifier>{ad5a741a-e422-4d8c-9265-80704c7e79db}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine\Graphics\animation.h">
+      <Filter>Header Files\Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\bloomEffect.h">
+      <Filter>Header Files\Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\particle.h">
+      <Filter>Header Files\Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\postEffect.h">
+      <Filter>Header Files\Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GUI\button.h">
+      <Filter>Header Files\Engine\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GUI\component.h">
+      <Filter>Header Files\Engine\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GUI\container.h">
+      <Filter>Header Files\Engine\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GUI\label.h">
+      <Filter>Header Files\Engine\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneNode\soundNode.h">
+      <Filter>Header Files\Engine\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneNode\spriteNode.h">
+      <Filter>Header Files\Engine\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneNode\textNode.h">
+      <Filter>Header Files\Engine\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneNode\emitterNode.h">
+      <Filter>Header Files\Engine\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneNode\entity.h">
+      <Filter>Header Files\Engine\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneNode\particleNode.h">
+      <Filter>Header Files\Engine\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneNode\sceneNode.h">
+      <Filter>Header Files\Engine\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Sound\musicPlayer.h">
+      <Filter>Header Files\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Sound\soundPlayer.h">
+      <Filter>Header Files\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\State\stateStack.h">
+      <Filter>Header Files\Engine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\State\state.h">
+      <Filter>Header Files\Engine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\State\stateIdentifiers.h">
+      <Filter>Header Files\Engine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\application.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\utility.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SceneNode\projectile.h">
+      <Filter>Header Files\Game\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SceneNode\aircraft.h">
+      <Filter>Header Files\Game\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SceneNode\pickup.h">
+      <Filter>Header Files\Game\SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\State\world.h">
+      <Filter>Header Files\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\State\gameOverState.h">
+      <Filter>Header Files\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\State\gameState.h">
+      <Filter>Header Files\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\State\menuState.h">
+      <Filter>Header Files\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\State\pauseState.h">
+      <Filter>Header Files\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\State\settingsState.h">
+      <Filter>Header Files\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\State\titleState.h">
+      <Filter>Header Files\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\player.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\dataTables.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Command\category.h">
+      <Filter>Header Files\Engine\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Command\command.h">
+      <Filter>Header Files\Engine\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Command\commandQueue.h">
+      <Filter>Header Files\Engine\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Resource\resourceHolder.h">
+      <Filter>Header Files\Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Resource\resourceIdentifiers.h">
+      <Filter>Header Files\Engine\Resource</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Engine\Graphics\postEffect.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\animation.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\bloomEffect.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GUI\label.cpp">
+      <Filter>Source Files\Engine\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GUI\button.cpp">
+      <Filter>Source Files\Engine\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GUI\component.cpp">
+      <Filter>Source Files\Engine\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GUI\container.cpp">
+      <Filter>Source Files\Engine\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneNode\emitterNode.cpp">
+      <Filter>Source Files\Engine\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneNode\entity.cpp">
+      <Filter>Source Files\Engine\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneNode\particleNode.cpp">
+      <Filter>Source Files\Engine\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneNode\sceneNode.cpp">
+      <Filter>Source Files\Engine\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneNode\soundNode.cpp">
+      <Filter>Source Files\Engine\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneNode\spriteNode.cpp">
+      <Filter>Source Files\Engine\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneNode\textNode.cpp">
+      <Filter>Source Files\Engine\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Sound\soundPlayer.cpp">
+      <Filter>Source Files\Engine\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Sound\musicPlayer.cpp">
+      <Filter>Source Files\Engine\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\State\stateStack.cpp">
+      <Filter>Source Files\Engine\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\State\state.cpp">
+      <Filter>Source Files\Engine\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\application.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\utility.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SceneNode\projectile.cpp">
+      <Filter>Source Files\Game\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SceneNode\aircraft.cpp">
+      <Filter>Source Files\Game\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SceneNode\pickup.cpp">
+      <Filter>Source Files\Game\SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\State\world.cpp">
+      <Filter>Source Files\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\State\gameOverState.cpp">
+      <Filter>Source Files\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\State\gameState.cpp">
+      <Filter>Source Files\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\State\menuState.cpp">
+      <Filter>Source Files\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\State\pauseState.cpp">
+      <Filter>Source Files\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\State\settingsState.cpp">
+      <Filter>Source Files\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\State\titleState.cpp">
+      <Filter>Source Files\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\player.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\dataTables.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Command\command.cpp">
+      <Filter>Source Files\Engine\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Command\commandQueue.cpp">
+      <Filter>Source Files\Engine\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Engine\Resource\resourceHolder.inl">
+      <Filter>Header Files\Engine\Resource</Filter>
+    </None>
+  </ItemGroup>
+</Project>
