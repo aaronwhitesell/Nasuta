@@ -72,6 +72,18 @@
     <Filter Include="Source Files\Engine\Command">
       <UniqueIdentifier>{ad5a741a-e422-4d8c-9265-80704c7e79db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Third Party">
+      <UniqueIdentifier>{fff2b443-923e-482d-9bb2-a7b62be3ffc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Third Party\TinyXML2">
+      <UniqueIdentifier>{024b5c23-ce4f-4317-b752-e61d2b5371e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Third Party">
+      <UniqueIdentifier>{b5609033-81a1-464c-9657-c7103193a221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Third Party\TinyXML2">
+      <UniqueIdentifier>{f003a2f8-aa59-4475-bd72-b1dfecde6b6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Graphics\animation.h">
@@ -191,6 +203,9 @@
     <ClInclude Include="Engine\Resource\resourceIdentifiers.h">
       <Filter>Header Files\Engine\Resource</Filter>
     </ClInclude>
+    <ClInclude Include="Third Party\TinyXML2\tinyxml2.h">
+      <Filter>Header Files\Third Party\TinyXML2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Graphics\postEffect.cpp">
@@ -297,6 +312,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Third Party\TinyXML2\tinyxml2.cpp">
+      <Filter>Source Files\Third Party\TinyXML2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

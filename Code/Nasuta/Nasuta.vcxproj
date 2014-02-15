@@ -109,6 +109,7 @@
     <ClInclude Include="Game\State\settingsState.h" />
     <ClInclude Include="Game\State\titleState.h" />
     <ClInclude Include="Game\State\world.h" />
+    <ClInclude Include="Third Party\TinyXML2\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\application.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Game\State\titleState.cpp" />
     <ClCompile Include="Game\State\world.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Third Party\TinyXML2\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine\Resource\resourceHolder.inl" />
