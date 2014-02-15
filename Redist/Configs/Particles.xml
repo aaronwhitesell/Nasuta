@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Particles -->
+<Particles>
+    <Propellant>
+		<lifetime         attribute="0.6"/>
+		<color            attribute0="255" attribute1="255" attribute2="50"/>
+	</Propellant>
+	<Smoke>
+		<lifetime         attribute="4.0"/>
+		<color            attribute0="50" attribute1="50" attribute2="50"/>
+	</Smoke>
+</Particles>

@@ -97,7 +97,6 @@
     <ClInclude Include="Engine\State\stateIdentifiers.h" />
     <ClInclude Include="Engine\State\stateStack.h" />
     <ClInclude Include="Engine\utility.h" />
-    <ClInclude Include="Game\dataTables.h" />
     <ClInclude Include="Game\player.h" />
     <ClInclude Include="Game\SceneNode\aircraft.h" />
     <ClInclude Include="Game\SceneNode\pickup.h" />
@@ -134,7 +133,6 @@
     <ClCompile Include="Engine\State\state.cpp" />
     <ClCompile Include="Engine\State\stateStack.cpp" />
     <ClCompile Include="Engine\utility.cpp" />
-    <ClCompile Include="Game\dataTables.cpp" />
     <ClCompile Include="Game\player.cpp" />
     <ClCompile Include="Game\SceneNode\aircraft.cpp" />
     <ClCompile Include="Game\SceneNode\pickup.cpp" />

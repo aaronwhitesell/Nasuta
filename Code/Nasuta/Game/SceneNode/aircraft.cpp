@@ -1,28 +1,25 @@
 #include "aircraft.h"
 #include "pickup.h"
-#include "../dataTables.h"
 
 #include "../../Engine/utility.h"
 #include "../../Engine/Command/commandQueue.h"
 #include "../../Engine/Resource/resourceHolder.h"
 #include "../../Engine/SceneNode/soundNode.h"
 
+#include "../../Third Party/TinyXML2/tinyxml2.h"
+
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
+#include <cassert>
 #include <cmath>
 #include <string>
 
 
-namespace
-{
-	const std::vector<AircraftData> Table = initializeAircraftData();
-}
-
 Aircraft::Aircraft(Type type, const TextureHolder& textures, const FontHolder& fonts)
-: Entity(Table[type].hitpoints)
+: Entity()
 , mType(type)
-, mSprite(textures.get(Table[type].texture), Table[type].textureRect)
+, mSprite()
 , mExplosion(textures.get(Textures::Explosion))
 , mFireCommand()
 , mMissileCommand()
@@ -41,6 +38,11 @@ Aircraft::Aircraft(Type type, const TextureHolder& textures, const FontHolder& f
 , mHealthDisplay(nullptr)
 , mMissileDisplay(nullptr)
 {
+	readXML(mType);
+	setHitpoints(mData.hitpoints);
+	mSprite.setTexture(textures.get(mData.texture));
+	mSprite.setTextureRect(mData.textureRect);
+
 	mExplosion.setFrameSize(sf::Vector2i(256, 256));
 	mExplosion.setNumFrames(16);
 	mExplosion.setDuration(sf::seconds(1));
@@ -151,7 +153,7 @@ bool Aircraft::isAllied() const
 
 float Aircraft::getMaxSpeed() const
 {
-	return Table[mType].speed;
+	return mData.speed;
 }
 
 void Aircraft::increaseFireRate()
@@ -174,7 +176,7 @@ void Aircraft::collectMissiles(unsigned int count)
 void Aircraft::fire()
 {
 	// Only ships with fire interval != 0 are able to fire
-	if (Table[mType].fireInterval != sf::Time::Zero)
+	if (mData.fireInterval != sf::Time::Zero)
 		mIsFiring = true;
 }
 
@@ -205,7 +207,7 @@ void Aircraft::playLocalSound(CommandQueue& commands, SoundEffect::ID effect)
 void Aircraft::updateMovementPattern(sf::Time dt)
 {
 	// Enemy airplane: Movement pattern
-	const std::vector<Direction>& directions = Table[mType].directions;
+	const std::vector<Direction>& directions = mData.directions;
 	if (!directions.empty())
 	{
 		// Moved long enough in current direction: Change direction
@@ -247,7 +249,7 @@ void Aircraft::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 		commands.push(mFireCommand);
 		playLocalSound(commands, isAllied() ? SoundEffect::AlliedGunfire : SoundEffect::EnemyGunfire);
 
-		mFireCountdown += Table[mType].fireInterval / (mFireRateLevel + 1.f);
+		mFireCountdown += mData.fireInterval / (mFireRateLevel + 1.f);
 		mIsFiring = false;
 	}
 	else if (mFireCountdown > sf::Time::Zero)
@@ -335,9 +337,9 @@ void Aircraft::updateTexts()
 
 void Aircraft::updateRollAnimation()
 {
-	if (Table[mType].hasRollAnimation)
+	if (mData.hasRollAnimation)
 	{
-		sf::IntRect textureRect = Table[mType].textureRect;
+		sf::IntRect textureRect = mData.textureRect;
 
 		// Roll left: Texture rect offset once
 		if (getVelocity().x < 0.f)
@@ -348,5 +350,80 @@ void Aircraft::updateRollAnimation()
 			textureRect.left += 2 * textureRect.width;
 
 		mSprite.setTextureRect(textureRect);
+	}
+}
+
+std::string Aircraft::toString(Type type) const
+{
+	std::string ret;
+	switch (type)
+	{
+		case 0:
+			ret = "eagle";
+			break;
+
+		case 1:
+			ret = "raptor";
+			break;
+
+		case 2:
+			ret = "avenger";
+			break;
+	}
+
+	// ALW - Will assert if type does not correspond to a string
+	assert(ret.compare("") != 0);
+	return ret;
+}
+
+Textures::ID Aircraft::toTexture(const std::string& str) const
+{
+	Textures::ID ret;
+	bool success = false;
+	if (str == "Textures::Entities")
+	{
+		ret = Textures::Entities;
+		success = true;
+	}
+
+	// ALW - Will assert if str does not correspond to a Textures::ID
+	assert(success);
+	return ret;
+}
+
+void Aircraft::readXML(Type type)
+{
+	const std::string filename("Configs/Aircrafts.xml");
+	tinyxml2::XMLDocument config;
+	if (config.LoadFile(filename.c_str()) != tinyxml2::XML_NO_ERROR)
+	{
+		throw std::runtime_error("TinyXML2 - Failed to load " + filename);
+	}
+
+	tinyxml2::XMLElement* element = config.FirstChildElement()->FirstChildElement(toString(type).c_str());
+	if (!element)
+	{
+		// ALW - Will assert if the type's element does not exist
+		assert(element);
+	}
+
+	mData.hitpoints        = element->FirstChildElement("hitpoints")->IntAttribute("attribute");
+	mData.speed            = element->FirstChildElement("speed")->FloatAttribute("attribute");
+	mData.fireInterval     = sf::seconds(element->FirstChildElement("fireInterval")->FloatAttribute("attribute"));
+	mData.texture          = toTexture(element->FirstChildElement("texture")->Attribute("attribute"));
+
+	const int left         = element->FirstChildElement("textureRect")->IntAttribute("attribute0");
+	const int top          = element->FirstChildElement("textureRect")->IntAttribute("attribute1");
+	const int width        = element->FirstChildElement("textureRect")->IntAttribute("attribute2");
+	const int height       = element->FirstChildElement("textureRect")->IntAttribute("attribute3");
+	mData.textureRect      = sf::IntRect(left, top, width, height);
+
+	mData.hasRollAnimation = element->FirstChildElement("hasRollAnimation")->BoolAttribute("attribute");
+
+	for (tinyxml2::XMLElement* direction = element->FirstChildElement("directions")->FirstChildElement(); direction != nullptr; direction = direction->NextSiblingElement())
+	{
+		float angle = direction->FloatAttribute("attribute0");
+		float distance = direction->FloatAttribute("attribute1");
+		mData.directions.push_back(Direction(angle, distance));
 	}
 }

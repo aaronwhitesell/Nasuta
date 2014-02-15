@@ -37,8 +37,26 @@ protected:
 
 
 private:
+	std::string				       toString(Type type) const;
+	std::function<void(Aircraft&)> toAction(const std::string& str) const;
+	Textures::ID			       toTexture(const std::string& str) const;
+	void					       readXML(Type type);
+
+
+private:
+	struct Data
+	{
+		std::function<void(Aircraft&)>	action;
+		Textures::ID					texture;
+		sf::IntRect						textureRect;
+	};
+
+
+private:
 	Type					mType;
 	sf::Sprite				mSprite;
+
+	Data					mData;
 };
 
 #endif

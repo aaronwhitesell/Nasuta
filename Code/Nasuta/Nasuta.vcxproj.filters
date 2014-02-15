@@ -185,9 +185,6 @@
     <ClInclude Include="Game\player.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\dataTables.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Command\category.h">
       <Filter>Header Files\Engine\Command</Filter>
     </ClInclude>
@@ -299,9 +296,6 @@
       <Filter>Source Files\Game\State</Filter>
     </ClCompile>
     <ClCompile Include="Game\player.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\dataTables.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Command\command.cpp">

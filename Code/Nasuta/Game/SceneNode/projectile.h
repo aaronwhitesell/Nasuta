@@ -35,11 +35,27 @@ private:
 	virtual void			updateCurrent(sf::Time dt, CommandQueue& commands);
 	virtual void			drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 
+	std::string				toString(Type type) const;
+	Textures::ID			toTexture(const std::string& str) const;
+	void					readXML(Type type);
+
+
+private:
+	struct Data
+	{
+		int					damage;
+		float				speed;
+		Textures::ID		texture;
+		sf::IntRect			textureRect;
+	};
+
 
 private:
 	Type					mType;
 	sf::Sprite				mSprite;
 	sf::Vector2f			mTargetDirection;
+
+	Data					mData;
 };
 
 #endif

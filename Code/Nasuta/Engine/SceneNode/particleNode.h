@@ -27,6 +27,16 @@ private:
 	void					addVertex(float worldX, float worldY, float texCoordX, float texCoordY, const sf::Color& color) const;
 	void					computeVertices() const;
 
+	std::string		        toString(Particle::Type type) const;
+	void					readXML(Particle::Type type);
+
+
+private:
+	struct Data
+	{
+		sf::Color			color;
+		sf::Time			lifetime;
+	};
 
 private:
 	std::deque<Particle>	mParticles;
@@ -35,6 +45,8 @@ private:
 
 	mutable sf::VertexArray mVertexArray;
 	mutable bool			mNeedsVertexUpdate;
+
+	Data					mData;
 };
 
 #endif

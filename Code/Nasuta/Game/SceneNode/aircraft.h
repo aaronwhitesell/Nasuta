@@ -56,7 +56,36 @@ private:
 
 	void					updateTexts();
 	void					updateRollAnimation();
-	
+
+	std::string				toString(Type type) const;
+	Textures::ID			toTexture(const std::string& str) const;
+	void					readXML(Type type);
+
+
+private:
+	struct Direction
+	{
+		Direction(float angle, float distance)
+		: angle(angle)
+		, distance(distance)
+		{
+		}
+
+		float angle;
+		float distance;
+	};
+
+	struct Data
+	{
+		int								hitpoints;
+		float							speed;
+		Textures::ID					texture;
+		sf::IntRect						textureRect;
+		sf::Time						fireInterval;
+		std::vector<Direction>			directions;
+		bool							hasRollAnimation;
+	};
+
 
 private:
 	Type					mType;
@@ -80,6 +109,8 @@ private:
 	std::size_t				mDirectionIndex;
 	TextNode*				mHealthDisplay;
 	TextNode*				mMissileDisplay;
+
+	Data					mData;
 };
 
 #endif

@@ -1,18 +1,13 @@
 #include "particleNode.h"
 #include "../Resource/resourceHolder.h"
 
-#include "../../Game/dataTables.h"
+#include "../../Third Party/TinyXML2/tinyxml2.h"
 
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
 #include <algorithm>
 
-
-namespace
-{
-	const std::vector<ParticleData> Table = initializeParticleData();
-}
 
 ParticleNode::ParticleNode(Particle::Type type, const TextureHolder& textures)
 : SceneNode()
@@ -22,14 +17,15 @@ ParticleNode::ParticleNode(Particle::Type type, const TextureHolder& textures)
 , mVertexArray(sf::Quads)
 , mNeedsVertexUpdate(true)
 {
+	readXML(mType);
 }
 
 void ParticleNode::addParticle(sf::Vector2f position)
 {
 	Particle particle;
 	particle.position = position;
-	particle.color = Table[mType].color;
-	particle.lifetime = Table[mType].lifetime;
+	particle.color = mData.color;
+	particle.lifetime = mData.lifetime;
 
 	mParticles.push_back(particle);
 }
@@ -94,7 +90,7 @@ void ParticleNode::computeVertices() const
 		sf::Vector2f pos = particle.position;
 		sf::Color color = particle.color;
 
-		float ratio = particle.lifetime.asSeconds() / Table[mType].lifetime.asSeconds();
+		float ratio = particle.lifetime.asSeconds() / mData.lifetime.asSeconds();
 		color.a = static_cast<sf::Uint8>(255 * std::max(ratio, 0.f));
 
 		addVertex(pos.x - half.x, pos.y - half.y, 0.f,    0.f,    color);
@@ -102,4 +98,47 @@ void ParticleNode::computeVertices() const
 		addVertex(pos.x + half.x, pos.y + half.y, size.x, size.y, color);
 		addVertex(pos.x - half.x, pos.y + half.y, 0.f,    size.y, color);
 	}
+}
+
+std::string ParticleNode::toString(Particle::Type type) const
+{
+	std::string ret;
+	switch (type)
+	{
+		case 0:
+			ret = "Propellant";
+			break;
+
+		case 1:
+			ret = "Smoke";
+			break;
+	}
+
+	// ALW - Will assert if type does not correspond to a string
+	assert(ret.compare("") != 0);
+	return ret;
+}
+
+void ParticleNode::readXML(Particle::Type type)
+{
+	const std::string filename("Configs/Particles.xml");
+	tinyxml2::XMLDocument config;
+	if (config.LoadFile(filename.c_str()) != tinyxml2::XML_NO_ERROR)
+	{
+		throw std::runtime_error("TinyXML2 - Failed to load " + filename);
+	}
+
+	const tinyxml2::XMLElement* element = config.FirstChildElement()->FirstChildElement(toString(type).c_str());
+	if (!element)
+	{
+		// ALW - Will assert if the type's element does not exist
+		assert(element);
+	}
+
+	mData.lifetime         = sf::seconds(element->FirstChildElement("lifetime")->FloatAttribute("attribute"));
+
+	const int red          = element->FirstChildElement("color")->IntAttribute("attribute0");
+	const int green        = element->FirstChildElement("color")->IntAttribute("attribute1");
+	const int blue         = element->FirstChildElement("color")->IntAttribute("attribute2");
+	mData.color            = sf::Color(red, green, blue);
 }

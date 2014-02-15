@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Pickups -->
+<Pickups>
+    <HealthRefill>
+		<action           attribute="repair"/>
+		<texture          attribute="Textures::Entities"/>
+		<textureRect      attribute0="0" attribute1="64" attribute2="40" attribute3="40"/>
+	</HealthRefill>
+	<MissileRefill>
+		<action           attribute="collectMissiles"/>
+		<texture          attribute="Textures::Entities"/>
+		<textureRect      attribute0="40" attribute1="64" attribute2="40" attribute3="40"/>
+	</MissileRefill>
+    <FireSpread>
+		<action           attribute="increaseSpread"/>
+		<texture          attribute="Textures::Entities"/>
+		<textureRect      attribute0="80" attribute1="64" attribute2="40" attribute3="40"/>
+	</FireSpread>
+    <FireRate>
+		<action           attribute="increaseFireRate"/>
+		<texture          attribute="Textures::Entities"/>
+		<textureRect      attribute0="120" attribute1="64" attribute2="40" attribute3="40"/>
+	</FireRate>
+</Pickups>
