@@ -82,6 +82,7 @@
     <ClInclude Include="Engine\GUI\component.h" />
     <ClInclude Include="Engine\GUI\container.h" />
     <ClInclude Include="Engine\GUI\label.h" />
+    <ClInclude Include="Engine\Input\input.h" />
     <ClInclude Include="Engine\Resource\resourceHolder.h" />
     <ClInclude Include="Engine\Resource\resourceIdentifiers.h" />
     <ClInclude Include="Engine\SceneNode\emitterNode.h" />
@@ -121,6 +122,7 @@
     <ClCompile Include="Engine\GUI\component.cpp" />
     <ClCompile Include="Engine\GUI\container.cpp" />
     <ClCompile Include="Engine\GUI\label.cpp" />
+    <ClCompile Include="Engine\Input\input.cpp" />
     <ClCompile Include="Engine\SceneNode\emitterNode.cpp" />
     <ClCompile Include="Engine\SceneNode\entity.cpp" />
     <ClCompile Include="Engine\SceneNode\particleNode.cpp" />

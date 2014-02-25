@@ -8,17 +8,17 @@
 
 SettingsState::SettingsState(StateStack& stack, Context context)
 : State(stack, context)
-, mGUIContainer()
+, mGUIContainer(context.window)
 {
 	mBackgroundSprite.setTexture(context.textures->get(Textures::TitleScreen));
 
 	// Build key binding buttons and labels
-	addButtonLabel(Player::MoveLeft,		200.f, "Move Left", context);
+	addButtonLabel(Player::MoveLeft,		200.f, "Move Left",  context);
 	addButtonLabel(Player::MoveRight,		250.f, "Move Right", context);
-	addButtonLabel(Player::MoveUp,			300.f, "Move Up", context);
-	addButtonLabel(Player::MoveDown,		350.f, "Move Down", context);
-	addButtonLabel(Player::Fire,			400.f, "Fire", context);
-	addButtonLabel(Player::LaunchMissile,	450.f, "Missile", context);
+	addButtonLabel(Player::MoveUp,			300.f, "Move Up",    context);
+	addButtonLabel(Player::MoveDown,		350.f, "Move Down",  context);
+	addButtonLabel(Player::Fire,			400.f, "Fire",       context);
+	addButtonLabel(Player::LaunchMissile,	450.f, "Missile",    context);
 
 	updateLabels();
 
@@ -53,11 +53,25 @@ bool SettingsState::handleEvent(const sf::Event& event)
 		if (mBindingButtons[action]->isActive())
 		{
 			isKeyBinding = true;
-			if (event.type == sf::Event::KeyReleased)
+			bool isDeactivateButton = false;
+			if (Input::isKeyboardEnabled() && event.type == sf::Event::KeyReleased)
 			{
-				getContext().player->assignKey(static_cast<Player::Action>(action), event.key.code);
-				mBindingButtons[action]->deactivate();
+				getContext().player->assignKey(static_cast<Player::Action>(action), Input::toKeyboardAndMouse(event.key.code));
+				isDeactivateButton = true;
 			}
+			else if (Input::isMouseEnabled() && event.type == sf::Event::MouseButtonReleased)
+			{
+				getContext().player->assignKey(static_cast<Player::Action>(action), Input::toKeyboardAndMouse(event.mouseButton.button));
+				isDeactivateButton = true;
+			}
+			else if (Input::isJoystickEnabled())
+			{
+				// ALW - TODO Joystick
+			}
+
+			if (isDeactivateButton)
+				mBindingButtons[action]->deactivate();
+
 			break;
 		}
 	}
@@ -77,7 +91,7 @@ void SettingsState::updateLabels()
 
 	for (std::size_t i = 0; i < Player::ActionCount; ++i)
 	{
-		sf::Keyboard::Key key = player.getAssignedKey(static_cast<Player::Action>(i));
+		Input::KeyboardAndMouse key = player.getAssignedKey(static_cast<Player::Action>(i));
 		mBindingLabels[i]->setText(toString(key));
 	}
 }

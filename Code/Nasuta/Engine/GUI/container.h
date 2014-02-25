@@ -3,9 +3,16 @@
 
 #include "component.h"
 
+#include <SFML/Graphics/RenderWindow.hpp>
+
 #include <memory>
 #include <vector>
 
+
+namespace sf
+{
+	class RenderWindow;
+}
 
 namespace GUI
 {
@@ -18,6 +25,7 @@ public:
 
 public:
 						Container();
+	explicit			Container(sf::RenderWindow* window);
 
 	void				pack(Component::Ptr component);
 
@@ -33,10 +41,13 @@ private:
 	void				selectNext();
 	void				selectPrevious();
 
+	bool				isIntersect(sf::Vector2i cursorPosition, sf::Vector2f buttonPosition) const;
+
 
 private:
 	std::vector<Component::Ptr>		mChildren;
 	int								mSelectedChild;
+	sf::RenderWindow*				mWindow;
 };
 
 }

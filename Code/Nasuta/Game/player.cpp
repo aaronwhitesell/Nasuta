@@ -29,12 +29,12 @@ Player::Player()
 : mCurrentMissionStatus(MissionRunning)
 {
 	// Set initial key bindings
-	mKeyBinding[sf::Keyboard::Left] = MoveLeft;
-	mKeyBinding[sf::Keyboard::Right] = MoveRight;
-	mKeyBinding[sf::Keyboard::Up] = MoveUp;
-	mKeyBinding[sf::Keyboard::Down] = MoveDown;
-	mKeyBinding[sf::Keyboard::Space] = Fire;
-	mKeyBinding[sf::Keyboard::M] = LaunchMissile;
+	mKeyBinding[Input::KeyboardAndMouse::A] = MoveLeft;
+	mKeyBinding[Input::KeyboardAndMouse::D] = MoveRight;
+	mKeyBinding[Input::KeyboardAndMouse::W] = MoveUp;
+	mKeyBinding[Input::KeyboardAndMouse::S] = MoveDown;
+	mKeyBinding[Input::KeyboardAndMouse::LeftMouse] = Fire;
+	mKeyBinding[Input::KeyboardAndMouse::RightMouse] = LaunchMissile;
 
 	// Set initial action bindings
 	initializeActions();
@@ -46,13 +46,20 @@ Player::Player()
 
 void Player::handleEvent(const sf::Event& event, CommandQueue& commands)
 {
-	if (event.type == sf::Event::KeyPressed)
+	std::map<Input::KeyboardAndMouse, Action>::const_iterator found = mKeyBinding.end();
+
+	if (Input::isKeyboardEnabled() && event.type == sf::Event::KeyPressed)
+		found = mKeyBinding.find(Input::toKeyboardAndMouse(event.key.code));
+	else if (Input::isMouseEnabled() && event.type == sf::Event::MouseButtonPressed)
+		found = mKeyBinding.find(Input::toKeyboardAndMouse(event.mouseButton.button));
+	else if (Input::isJoystickEnabled())
 	{
-		// Check if pressed key appears in key binding, trigger command if so
-		auto found = mKeyBinding.find(event.key.code);
-		if (found != mKeyBinding.end() && !isRealtimeAction(found->second))
-			commands.push(mActionBinding[found->second]);
+		// ALW - TODO Joystick
 	}
+
+	// ALW - If pressed key appears in key binding and is real time action then trigger command
+	if (found != mKeyBinding.end() && !isRealtimeAction(found->second))
+		commands.push(mActionBinding[found->second]);
 }
 
 void Player::handleRealtimeInput(CommandQueue& commands)
@@ -60,13 +67,29 @@ void Player::handleRealtimeInput(CommandQueue& commands)
 	// Traverse all assigned keys and check if they are pressed
 	for (auto pair : mKeyBinding)
 	{
-		// If key is pressed, lookup action and trigger corresponding command
-		if (sf::Keyboard::isKeyPressed(pair.first) && isRealtimeAction(pair.second))
+		bool isKeyPressed = false;
+		if (Input::isKeyboardEnabled() && Input::isKeyboard(pair.first))
+		{
+			// If key is pressed, lookup action and trigger corresponding command
+			if (sf::Keyboard::isKeyPressed(Input::toKeyboard(pair.first)) && isRealtimeAction(pair.second))
+				isKeyPressed = true;
+		}
+		else if (Input::isMouseEnabled() && Input::isMouse(pair.first))
+		{
+			if (sf::Mouse::isButtonPressed(Input::toMouse(pair.first)) && isRealtimeAction(pair.second))
+				isKeyPressed = true;
+		}
+		else if (Input::isJoystickEnabled())
+		{
+			// ALW - TODO Joystick
+		}
+
+		if (isKeyPressed)
 			commands.push(mActionBinding[pair.second]);
 	}
 }
 
-void Player::assignKey(Action action, sf::Keyboard::Key key)
+void Player::assignKey(Action action, Input::KeyboardAndMouse key)
 {
 	// Remove all keys that already map to action
 	for (auto itr = mKeyBinding.begin(); itr != mKeyBinding.end(); )
@@ -81,7 +104,7 @@ void Player::assignKey(Action action, sf::Keyboard::Key key)
 	mKeyBinding[key] = action;
 }
 	
-sf::Keyboard::Key Player::getAssignedKey(Action action) const
+Input::KeyboardAndMouse Player::getAssignedKey(Action action) const
 {
 	for (auto pair : mKeyBinding)
 	{
@@ -89,7 +112,7 @@ sf::Keyboard::Key Player::getAssignedKey(Action action) const
 			return pair.first;
 	}
 
-	return sf::Keyboard::Unknown;
+	return Input::KeyboardAndMouse::Unknown;
 }
 
 void Player::setMissionStatus(MissionStatus status)

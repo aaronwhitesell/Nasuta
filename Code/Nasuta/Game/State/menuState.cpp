@@ -11,7 +11,7 @@
 
 MenuState::MenuState(StateStack& stack, Context context)
 : State(stack, context)
-, mGUIContainer()
+, mGUIContainer(context.window)
 {
 	sf::Texture& texture = context.textures->get(Textures::TitleScreen);
 	mBackgroundSprite.setTexture(texture);

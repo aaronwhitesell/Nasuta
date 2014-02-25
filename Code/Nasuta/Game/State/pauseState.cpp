@@ -14,7 +14,7 @@ PauseState::PauseState(StateStack& stack, Context context)
 : State(stack, context)
 , mBackgroundSprite()
 , mPausedText()
-, mGUIContainer()
+, mGUIContainer(context.window)
 {
 	sf::Font& font = context.fonts->get(Fonts::Main);
 	sf::Vector2f windowSize(context.window->getSize());

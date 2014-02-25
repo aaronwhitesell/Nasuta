@@ -1,6 +1,8 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
+#include "Input/input.h"
+
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/System/Vector2.hpp>
 
@@ -16,7 +18,7 @@ namespace sf
 class Animation;
 
 // Convert enumerators to strings
-std::string		toString(sf::Keyboard::Key key);
+std::string		toString(Input::KeyboardAndMouse key);
 
 // Call setOrigin() with the center of the object
 void			centerOrigin(sf::Sprite& sprite);
