@@ -1,0 +1,39 @@
+File Structure
+Nasuta
+-Assets
+-Docs
+-Game: location of game files (will run)
+-Source
+--Nasuta
+---Nasuta: location of cpp files
+-Temp: location of intermediate files for all builds
+
+Project Setup
+1. FILE -> New Project...
+2. Installed -> Templates -> Visual C++ -> General
+3. Empty Project
+4. Name and Solution Name
+5. (checked) Create directory for solution
+6. Verify Location + Ok
+
+Project Configuration
+1. Project Properties -> Configuration Properties -> General -> Output Directory
+   (Debug) $(SolutionDir)..\..\Temp\DebugWin32VS2012\
+   (Release) $(SolutionDir)..\..\Temp\ReleaseWin32VS2012\
+2. Project Properties -> Configuration Properties -> General -> Intermediate Directory
+   (Debug) $(SolutionDir)..\..\Temp\DebugWin32VS2012\$(Configuration)\
+   (Release) $(SolutionDir)..\..\Temp\ReleaseWin32VS2012\$(Configuration)\
+
+3rd Party Project Configuration
+1. Project Properties -> Configuration Properties -> C++ -> Additional Include Directories
+   (All COnfigurations) $(SolutionDir)\..\3rdParty\SFML-2.1\include
+2. Project Properties -> Configuration Properties -> Linker -> Additional Library Directories 
+   (All COnfigurations) $(SolutionDir)\..\3rdParty\SFML-2.1\lib
+3. Project Properties -> Configuration Properties -> Linker -> Input -> Additional Depedencies
+   (Debug) sfml-audio-d.lib, sfml-graphics-d.lib, sfml-system-d.lib, sfml-window-d.lib
+   (Release) sfml-audio.lib, sfml-graphics.lib, sfml-system.lib, sfml-window.lib
+4. Project Properties -> Configuration Properties -> Debugging -> Working Directory
+   $(SolutionDir)..\..\Game
+5. Necessary in VS20132, because of a bug.
+   (All COnfigurations) Project Properties -> Configuration Properties -> Debugging -> Environment
+   (All COnfigurations) PATH=%PATH%;$(SolutionDir)..\..\Game

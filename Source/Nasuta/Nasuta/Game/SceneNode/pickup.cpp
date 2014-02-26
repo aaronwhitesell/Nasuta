@@ -6,7 +6,7 @@
 #include "../../Engine/Command/commandQueue.h"
 #include "../../Engine/Resource/resourceHolder.h"
 
-#include "../../Third Party/TinyXML2/tinyxml2.h"
+#include "../../../../3rdParty/TinyXML2/tinyxml2.h"
 
 #include <SFML/Graphics/RenderTarget.hpp>
 
@@ -119,7 +119,7 @@ Textures::ID Pickup::toTexture(const std::string& str) const
 
 void Pickup::readXML(Type type)
 {
-	const std::string filename("Configs/Pickups.xml");
+	const std::string filename("Data/Configs/Pickups.xml");
 	tinyxml2::XMLDocument config;
 	if (config.LoadFile(filename.c_str()) != tinyxml2::XML_NO_ERROR)
 	{

@@ -6,7 +6,7 @@
 #include "../../Engine/Resource/resourceHolder.h"
 #include "../../Engine/SceneNode/soundNode.h"
 
-#include "../../Third Party/TinyXML2/tinyxml2.h"
+#include "../../../../3rdParty/TinyXML2/tinyxml2.h"
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -393,7 +393,7 @@ Textures::ID Aircraft::toTexture(const std::string& str) const
 
 void Aircraft::readXML(Type type)
 {
-	const std::string filename("Configs/Aircrafts.xml");
+	const std::string filename("Data/Configs/Aircrafts.xml");
 	tinyxml2::XMLDocument config;
 	if (config.LoadFile(filename.c_str()) != tinyxml2::XML_NO_ERROR)
 	{

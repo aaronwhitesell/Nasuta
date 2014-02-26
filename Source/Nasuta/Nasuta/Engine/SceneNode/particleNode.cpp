@@ -1,7 +1,7 @@
 #include "particleNode.h"
 #include "../Resource/resourceHolder.h"
 
-#include "../../Third Party/TinyXML2/tinyxml2.h"
+#include "../../../../3rdParty/TinyXML2/tinyxml2.h"
 
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -121,7 +121,7 @@ std::string ParticleNode::toString(Particle::Type type) const
 
 void ParticleNode::readXML(Particle::Type type)
 {
-	const std::string filename("Configs/Particles.xml");
+	const std::string filename("Data/Configs/Particles.xml");
 	tinyxml2::XMLDocument config;
 	if (config.LoadFile(filename.c_str()) != tinyxml2::XML_NO_ERROR)
 	{

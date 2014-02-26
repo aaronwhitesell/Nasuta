@@ -27,10 +27,10 @@ Application::Application()
 {
 	mWindow.setKeyRepeatEnabled(false);
 
-	mFonts.load(Fonts::Main, "Fonts/Sansation.ttf");
+	mFonts.load(Fonts::Main, "Data/Fonts/Sansation.ttf");
 
-	mTextures.load(Textures::TitleScreen,	"Textures/TitleScreen.png");
-	mTextures.load(Textures::Buttons,		"Textures/Buttons.png");
+	mTextures.load(Textures::TitleScreen,	"Data/Textures/TitleScreen.png");
+	mTextures.load(Textures::Buttons,		"Data/Textures/Buttons.png");
 
 	mStatisticsText.setFont(mFonts.get(Fonts::Main));
 	mStatisticsText.setPosition(5.f, 5.f);

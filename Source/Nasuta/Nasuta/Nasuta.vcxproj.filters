@@ -72,23 +72,23 @@
     <Filter Include="Source Files\Engine\Command">
       <UniqueIdentifier>{ad5a741a-e422-4d8c-9265-80704c7e79db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Third Party">
-      <UniqueIdentifier>{fff2b443-923e-482d-9bb2-a7b62be3ffc4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Third Party\TinyXML2">
-      <UniqueIdentifier>{024b5c23-ce4f-4317-b752-e61d2b5371e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Third Party">
-      <UniqueIdentifier>{b5609033-81a1-464c-9657-c7103193a221}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Third Party\TinyXML2">
-      <UniqueIdentifier>{f003a2f8-aa59-4475-bd72-b1dfecde6b6c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\Input">
       <UniqueIdentifier>{4d0d7976-df0e-4f96-bd0e-72f825b5e35c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Input">
       <UniqueIdentifier>{8befbe90-d346-4203-b8ab-a30b94e95dc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3rdParty">
+      <UniqueIdentifier>{b243aac4-8af2-4792-bbff-f397e5188a8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3rdParty\TinyXML2">
+      <UniqueIdentifier>{637a37e4-1db8-48ef-b6ad-21380815abbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\3rdParty">
+      <UniqueIdentifier>{1211b601-552e-4eae-9119-7f5dc4d45d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\3rdParty\TinyXML2">
+      <UniqueIdentifier>{8c67659f-7487-4c14-905a-a52ed584e6cf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -206,11 +206,11 @@
     <ClInclude Include="Engine\Resource\resourceIdentifiers.h">
       <Filter>Header Files\Engine\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="Third Party\TinyXML2\tinyxml2.h">
-      <Filter>Header Files\Third Party\TinyXML2</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Input\input.h">
       <Filter>Header Files\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdParty\TinyXML2\tinyxml2.h">
+      <Filter>Header Files\3rdParty\TinyXML2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -316,11 +316,11 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Third Party\TinyXML2\tinyxml2.cpp">
-      <Filter>Source Files\Third Party\TinyXML2</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Input\input.cpp">
       <Filter>Source Files\Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdParty\TinyXML2\tinyxml2.cpp">
+      <Filter>Source Files\3rdParty\TinyXML2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

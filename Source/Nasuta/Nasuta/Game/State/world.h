@@ -100,8 +100,6 @@ private:
 
 	std::vector<SpawnPoint>				mEnemySpawnPoints;
 	std::vector<Aircraft*>				mActiveEnemies;
-
-	BloomEffect							mBloomEffect;
 };
 
 #endif

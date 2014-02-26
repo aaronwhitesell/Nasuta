@@ -4,7 +4,7 @@
 #include "../../Engine/Resource/resourceHolder.h"
 #include "../../Engine/SceneNode/emitterNode.h"
 
-#include "../../Third Party/TinyXML2/tinyxml2.h"
+#include "../../../../3rdParty/TinyXML2/tinyxml2.h"
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -135,7 +135,7 @@ Textures::ID Projectile::toTexture(const std::string& str) const
 
 void Projectile::readXML(Type type)
 {
-	const std::string filename("Configs/Projectiles.xml");
+	const std::string filename("Data/Configs/Projectiles.xml");
 	tinyxml2::XMLDocument config;
 	if (config.LoadFile(filename.c_str()) != tinyxml2::XML_NO_ERROR)
 	{

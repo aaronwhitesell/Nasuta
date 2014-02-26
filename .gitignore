@@ -9,23 +9,5 @@
 # suo, solution options file (hidden)
 *.suo
 
-# Compiled Project
-# exe, executable
-*.exe
-# pdb, program debug database
-*.pdb
-# ilk, incremental link file
-*.ilk
-# obj, object file, compiled but not linked
-*.obj
-# idb - state file
-*.idb
-*.opensdf
-*.tlog
-*.log
-*.lastbuildstate
-
 # Excluded Directories
-SDK/
-Code/Debug/
-Code/Release/
+Temp/
