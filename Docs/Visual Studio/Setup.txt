@@ -2,11 +2,9 @@ File Structure
 Nasuta
 -Assets
 -Docs
--Game: location of game files (will run)
--Source
---Nasuta
----Nasuta: location of cpp files
--Temp: location of intermediate files for all builds
+-Game:
+-Source\Nasuta\Nasuta: location of cpp files
+-Temp: location of output and intermediate files
 
 Project Setup
 1. FILE -> New Project...
@@ -23,17 +21,27 @@ Project Configuration
 2. Project Properties -> Configuration Properties -> General -> Intermediate Directory
    (Debug) $(SolutionDir)..\..\Temp\DebugWin32VS2012\$(Configuration)\
    (Release) $(SolutionDir)..\..\Temp\ReleaseWin32VS2012\$(Configuration)\
+3. Project Properties -> Configuration Properties -> Debugging -> Working Directory
+   (All Configurations) $(SolutionDir)..\..\Game
+4. Necessary, because of a bug in VS2012.
+   Project Properties -> Configuration Properties -> Debugging -> Environment
+   (All COnfigurations) PATH=%PATH%;$(SolutionDir)..\..\Game
 
-3rd Party Project Configuration
+Trambo Configuration
 1. Project Properties -> Configuration Properties -> C++ -> Additional Include Directories
-   (All COnfigurations) $(SolutionDir)\..\3rdParty\SFML-2.1\include
+   (All Configurations) $(SolutionDir)..\..\..\Trambo\Include (WARNING: links directly to Trambo project)
+2. Project Properties -> Configuration Properties -> Linker -> Additional Library Directories
+   (Debug) $(SolutionDir)..\..\..\Trambo\Lib\DebugWin32VS2012 (WARNING: links directly to Trambo project)
+   (Release) $(SolutionDir)..\..\..\Trambo\Lib\ReleaseWin32VS2012 (WARNING: links directly to Trambo project)
+3. Project Properties -> Configuration Properties -> Linker -> Input -> Additional Depedencies
+   (Debug) Trambo-d.lib
+   (Release) Trambo.lib
+
+SFML Configuration
+1. Project Properties -> Configuration Properties -> C++ -> Additional Include Directories
+   (All Configurations) $(SolutionDir)..\3rdParty\SFML-2.1\include
 2. Project Properties -> Configuration Properties -> Linker -> Additional Library Directories 
-   (All COnfigurations) $(SolutionDir)\..\3rdParty\SFML-2.1\lib
+   (All Configurations) $(SolutionDir)..\3rdParty\SFML-2.1\lib
 3. Project Properties -> Configuration Properties -> Linker -> Input -> Additional Depedencies
    (Debug) sfml-audio-d.lib, sfml-graphics-d.lib, sfml-system-d.lib, sfml-window-d.lib
    (Release) sfml-audio.lib, sfml-graphics.lib, sfml-system.lib, sfml-window.lib
-4. Project Properties -> Configuration Properties -> Debugging -> Working Directory
-   $(SolutionDir)..\..\Game
-5. Necessary in VS20132, because of a bug.
-   (All COnfigurations) Project Properties -> Configuration Properties -> Debugging -> Environment
-   (All COnfigurations) PATH=%PATH%;$(SolutionDir)..\..\Game
