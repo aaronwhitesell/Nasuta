@@ -39,8 +39,10 @@ public:
 	void					handleEvent(const sf::Event& event, CommandQueue& commands);
 	void					handleRealtimeInput(CommandQueue& commands);
 
-	void					assignKey(Action action, Input::KeyboardAndMouse key);
-	Input::KeyboardAndMouse getAssignedKey(Action action) const;
+	void					assignKeyboardKey(Action action, sf::Keyboard::Key key);
+	void					assignMouseButton(Action action, sf::Mouse::Button button);
+	sf::Keyboard::Key       getAssignedKeyboardKey(Action action) const;
+	sf::Mouse::Button       getAssignedMouseButton(Action action) const;
 
 	void					setMissionStatus(MissionStatus status);
 	MissionStatus			getMissionStatus() const;
@@ -52,7 +54,9 @@ private:
 
 
 private:
-	std::map<Input::KeyboardAndMouse, Action> mKeyBinding;
+	std::map<sf::Keyboard::Key, Action>		  mKeyboardBinding;
+	std::map<sf::Mouse::Button, Action>		  mMouseBinding;
+	// ALW - TODO - Joystick binding
 	std::map<Action, Command>				  mActionBinding;
 	MissionStatus							  mCurrentMissionStatus;
 };

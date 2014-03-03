@@ -21,9 +21,9 @@ namespace
 	auto RandomEngine = createRandomEngine();
 }
 
-std::string toString(Input::KeyboardAndMouse key)
+std::string toString(sf::Keyboard::Key key)
 {
-	#define KEYTOSTRING_CASE(KEY) case Input::KeyboardAndMouse::KEY: return #KEY;
+	#define KEYTOSTRING_CASE(KEY) case sf::Keyboard::KEY: return #KEY;
 
 	switch (key)
 	{
@@ -129,14 +129,28 @@ std::string toString(Input::KeyboardAndMouse key)
 		KEYTOSTRING_CASE(F14)
 		KEYTOSTRING_CASE(F15)
 		KEYTOSTRING_CASE(Pause)
-        KEYTOSTRING_CASE(LeftMouse)
-        KEYTOSTRING_CASE(RightMouse)
-        KEYTOSTRING_CASE(MiddleMouse)
-        KEYTOSTRING_CASE(XButton1Mouse)
-        KEYTOSTRING_CASE(XButton2Mouse)
 	}
 
 	return "";
+}
+
+std::string toString(sf::Mouse::Button button)
+{
+	switch (button)
+	{
+		case sf::Mouse::Button::Left:
+			return "Mouse Left";
+		case sf::Mouse::Button::Right:
+			return "Mouse Right";
+		case sf::Mouse::Button::Middle:
+			return "Mouse Middle";
+		case sf::Mouse::Button::XButton1:
+			return "Mouse Extra One";
+		case sf::Mouse::Button::XButton2:
+			return "Mouse Extra Two";
+		default:
+			return "";
+	}
 }
 
 void centerOrigin(sf::Sprite& sprite)
