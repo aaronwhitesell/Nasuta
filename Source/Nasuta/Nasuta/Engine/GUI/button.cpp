@@ -11,12 +11,14 @@
 namespace GUI
 {
 
-Button::Button(State::Context context)
+Button::Button(State::Context context, int buttonWidth, int buttonHeight)
 : mCallback()
 , mSprite(context.textures->get(Textures::Buttons))
 , mText("", context.fonts->get(Fonts::Main), 16)
 , mIsToggle(false)
 , mSounds(*context.sounds)
+, mButtonWidth(buttonWidth)
+, mButtonHeight(buttonHeight)
 {
 	changeTexture(Normal);
 
@@ -112,19 +114,21 @@ void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Button::changeTexture(Type buttonType)
 {
-	sf::IntRect textureRect(0, 50*buttonType, 200, 50);
+	// ALW - This fcn relies on the assumption that all buttons are rectangular,
+	// equal in size, and stacked vertically in the texture.
+	const int buttonOffset = mButtonHeight;
+	const sf::IntRect textureRect(0, buttonOffset * buttonType, mButtonWidth, mButtonHeight);
 	mSprite.setTextureRect(textureRect);
 }
 
 bool Button::isIntersect(sf::Vector2i cursorPosition) const
 {
-	// ALW - TODO: Button width and height are hardcoded
-	const int width = 200;
-	const int height = 50;
 	const sf::Vector2f buttonPosition = getPosition();
 
-	return (cursorPosition.x > buttonPosition.x) && (cursorPosition.x < buttonPosition.x + width)
-			&& (cursorPosition.y > buttonPosition.y) && (cursorPosition.y < buttonPosition.y + height);
+	return (cursorPosition.x > buttonPosition.x)
+		&& (cursorPosition.x < buttonPosition.x + mButtonWidth)
+		&& (cursorPosition.y > buttonPosition.y)
+		&& (cursorPosition.y < buttonPosition.y + mButtonHeight);
 }
 
 }

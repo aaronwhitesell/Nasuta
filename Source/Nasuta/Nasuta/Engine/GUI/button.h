@@ -32,7 +32,7 @@ public:
 	};
 
 public:
-							Button(State::Context context);
+							Button(State::Context context, int buttonWidth, int buttonHeight);
 								
 	void					setCallback(Callback callback);
 	void					setText(const std::string& text);
@@ -61,6 +61,8 @@ private:
 	sf::Text				mText;
 	bool					mIsToggle;			// The button remains pressed (active) until explicitly changed (supports poll method).
 	SoundPlayer&			mSounds;
+	int                     mButtonWidth;
+	int                     mButtonHeight;
 };
 
 }
