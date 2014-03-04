@@ -41,8 +41,6 @@ private:
 	void				selectNext();
 	void				selectPrevious();
 
-	bool				isIntersect(sf::Vector2i cursorPosition, sf::Vector2f buttonPosition) const;
-
 
 private:
 	std::vector<Component::Ptr>		mChildren;

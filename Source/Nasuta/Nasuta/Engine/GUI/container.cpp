@@ -28,6 +28,11 @@ void Container::pack(Component::Ptr component)
 	// ALW - If no Component is selected and Component is selectable then select it.
 	if (!hasSelection() && component->isSelectable())
 		select(mChildren.size() - 1);
+
+	// ALW - Hack - Fake a MouseMoved event to force an update. The cursor may be over a button, but hasn't moved.
+	sf::Event event;
+	event.type = sf::Event::EventType::MouseMoved;
+	handleEvent(event);
 }
 
 bool Container::isSelectable() const
@@ -41,6 +46,14 @@ void Container::handleEvent(const sf::Event& event)
 	if (hasSelection() && mChildren[mSelectedChild]->isActive())
 	{
 		mChildren[mSelectedChild]->handleEvent(event);
+	}
+	else if (event.type == sf::Event::KeyPressed)
+	{
+		if (event.key.code == sf::Keyboard::Return || event.key.code == sf::Keyboard::Space)
+		{
+			if (hasSelection())
+				mChildren[mSelectedChild]->press();
+		}
 	}
 	else if (event.type == sf::Event::KeyReleased)
 	{
@@ -60,28 +73,50 @@ void Container::handleEvent(const sf::Event& event)
 	}
 	else if (event.type == sf::Event::MouseMoved)
 	{
-		const sf::Vector2i cursorPosition = sf::Mouse::getPosition(*mWindow);
 		int index = 0;
 		for (const Component::Ptr& child : mChildren)
 		{
-			// ALW - TODO: The for loop does not end when a intersection is found
-			const sf::Vector2f buttonPosition = child->getPosition();
 			if (child->isSelectable())
 			{
-				if (isIntersect(cursorPosition, buttonPosition))
+				const sf::Vector2i cursorPosition = sf::Mouse::getPosition(*mWindow);
+				if (child->isIntersect(cursorPosition))
+				{
 					select(index);
+					break;
+				}
+				else if (child->isPressed())
+					child->cancelPress();
 			}
 			++index;
+		}
+	}
+	else if (event.type == sf::Event::MouseButtonPressed)
+	{
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			if (hasSelection())
+			{
+				const sf::Vector2i cursorPosition = sf::Mouse::getPosition(*mWindow);
+				if (mChildren[mSelectedChild]->isIntersect(cursorPosition))
+					mChildren[mSelectedChild]->press();
+			}
 		}
 	}
 	else if (event.type == sf::Event::MouseButtonReleased)
 	{
 		if (event.mouseButton.button == sf::Mouse::Left)
 		{
-			if (hasSelection())
-				mChildren[mSelectedChild]->activate();
+			if (hasSelection() && mChildren[mSelectedChild]->isPressed())
+			{
+				const sf::Vector2i cursorPosition = sf::Mouse::getPosition(*mWindow);
+				if (mChildren[mSelectedChild]->isIntersect(cursorPosition))
+					mChildren[mSelectedChild]->activate();
+			}
 		}
 	}
+
+	// ALW - TODO - Joystick UI
+
 }
 
 void Container::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -99,7 +134,7 @@ bool Container::hasSelection() const
 
 void Container::select(std::size_t index)
 {
-	if (mChildren[index]->isSelectable())
+	if (mChildren[index]->isSelectable() && !mChildren[index]->isPressed())
 	{
 		if (hasSelection())
 			mChildren[mSelectedChild]->deselect();
@@ -137,13 +172,6 @@ void Container::selectPrevious()
 
 	// Select that component
 	select(prev);
-}
-
-bool Container::isIntersect(const sf::Vector2i cursorPosition, const sf::Vector2f buttonPosition) const
-{
-	// ALW - TODO: Button width and height is hardcoded
-	return (cursorPosition.x > buttonPosition.x) && (cursorPosition.x < buttonPosition.x + 200) 
-					&& (cursorPosition.y > buttonPosition.y) && (cursorPosition.y < buttonPosition.y + 50);
 }
 
 }

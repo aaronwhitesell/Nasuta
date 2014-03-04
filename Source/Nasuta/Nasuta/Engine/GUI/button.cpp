@@ -59,13 +59,24 @@ void Button::deselect()
 	changeTexture(Normal);
 }
 
+void Button::press()
+{
+	Component::press();
+
+	changeTexture(Pressed);
+}
+
+void Button::cancelPress()
+{
+	Component::cancelPress();
+
+	changeTexture(Selected);
+}
+
 void Button::activate()
 {
+	Component::cancelPress();
 	Component::activate();
-
-	// If we are toggle then we should show that the button is pressed and thus "toggled."
-	if (mIsToggle)
-		changeTexture(Pressed);
 
 	if (mCallback)
 		mCallback();
@@ -81,14 +92,11 @@ void Button::deactivate()
 {
 	Component::deactivate();
 
-	if (mIsToggle)
-	{
-		// Reset texture to right one depending on if we are selected or not.
-		if (isSelected())
-			changeTexture(Selected);
-		else
-			changeTexture(Normal);
-	}
+	// Reset texture to right one depending on if we are selected or not.
+	if (isSelected())
+		changeTexture(Selected);
+	else
+		changeTexture(Normal);
 }
 
 void Button::handleEvent(const sf::Event&)
@@ -106,6 +114,17 @@ void Button::changeTexture(Type buttonType)
 {
 	sf::IntRect textureRect(0, 50*buttonType, 200, 50);
 	mSprite.setTextureRect(textureRect);
+}
+
+bool Button::isIntersect(sf::Vector2i cursorPosition) const
+{
+	// ALW - TODO: Button width and height are hardcoded
+	const int width = 200;
+	const int height = 50;
+	const sf::Vector2f buttonPosition = getPosition();
+
+	return (cursorPosition.x > buttonPosition.x) && (cursorPosition.x < buttonPosition.x + width)
+			&& (cursorPosition.y > buttonPosition.y) && (cursorPosition.y < buttonPosition.y + height);
 }
 
 }

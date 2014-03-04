@@ -71,7 +71,13 @@ bool SettingsState::handleEvent(const sf::Event& event)
 			// ALW - TODO - Joystick binding
 
 			if (isDeactivateButton)
+			{
 				mBindingButtons[action]->deactivate();
+				// ALW - Hack - Fake a MouseMoved event to force an update. The cursor may be over a button, but hasn't moved.
+				sf::Event event;
+				event.type = sf::Event::EventType::MouseMoved;
+				mGUIContainer.handleEvent(event);
+			}
 
 			break;
 		}

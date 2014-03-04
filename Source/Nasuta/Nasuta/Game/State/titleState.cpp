@@ -44,8 +44,8 @@ bool TitleState::update(sf::Time dt)
 
 bool TitleState::handleEvent(const sf::Event& event)
 {
-	// If any key is pressed, trigger the next screen
-	if (event.type == sf::Event::KeyReleased)
+	// If any key or button is pressed, trigger the next screen
+	if (event.type == sf::Event::KeyReleased || event.type == sf::Event::MouseButtonReleased) // ALW - TODO - Joystick UI
 	{
 		requestStackPop();
 		requestStackPush(States::Menu);

@@ -39,12 +39,15 @@ public:
 	void					setToggle(bool flag);
 
 	virtual bool			isSelectable() const;
+
 	virtual void			select();
 	virtual void			deselect();
-
+    virtual void            press();
+    virtual void            cancelPress();
 	virtual void			activate();
 	virtual void			deactivate();
 
+	virtual bool			isIntersect(sf::Vector2i cursorPosition) const;
 	virtual void			handleEvent(const sf::Event& event);
 
 
