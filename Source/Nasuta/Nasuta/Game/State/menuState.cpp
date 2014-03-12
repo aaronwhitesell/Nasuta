@@ -1,9 +1,9 @@
 #include "menuState.h"
+#include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
 #include "../../Engine/GUI/button.h"
 #include "../../Engine/Sound/musicPlayer.h"
-#include "../../Engine/Resource/resourceHolder.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>

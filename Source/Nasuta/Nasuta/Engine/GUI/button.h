@@ -2,7 +2,6 @@
 #define BUTTON_H
 
 #include "component.h"
-#include "../Resource/resourceIdentifiers.h"
 #include "../State/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>

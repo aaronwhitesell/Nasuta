@@ -9,8 +9,8 @@
 #include "../../Engine/SceneNode/sceneNode.h"
 #include "../../Engine/SceneNode/spriteNode.h"
 #include "../../Engine/Sound/soundPlayer.h"
-#include "../../Engine/Resource/resourceHolder.h"
-#include "../../Engine/Resource/resourceIdentifiers.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/View.hpp>
@@ -29,7 +29,7 @@ namespace sf
 class World : private sf::NonCopyable
 {
 public:
-										World(sf::RenderTarget& outputTarget, FontHolder& fonts,  SoundPlayer& sounds);
+										World(sf::RenderTarget& outputTarget, trmb::FontHolder& fonts,  SoundPlayer& sounds);
 
 	void								update(sf::Time dt);
 	void								draw();
@@ -85,8 +85,8 @@ private:
 	sf::RenderTarget&					mTarget;
 	sf::RenderTexture					mSceneTexture;
 	sf::View							mWorldView;
-	TextureHolder						mTextures;
-	FontHolder&							mFonts;
+	trmb::TextureHolder					mTextures;
+	trmb::FontHolder&					mFonts;
 	SoundPlayer&						mSounds;
 	
 	SceneNode							mSceneGraph;

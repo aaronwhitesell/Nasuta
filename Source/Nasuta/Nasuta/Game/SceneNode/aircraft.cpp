@@ -1,9 +1,9 @@
 #include "aircraft.h"
 #include "pickup.h"
+#include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
 #include "../../Engine/Command/commandQueue.h"
-#include "../../Engine/Resource/resourceHolder.h"
 #include "../../Engine/SceneNode/soundNode.h"
 
 #include "../../../../3rdParty/TinyXML2/tinyxml2.h"
@@ -16,7 +16,7 @@
 #include <string>
 
 
-Aircraft::Aircraft(Type type, const TextureHolder& textures, const FontHolder& fonts)
+Aircraft::Aircraft(Type type, const trmb::TextureHolder& textures, const trmb::FontHolder& fonts)
 : Entity()
 , mType(type)
 , mSprite()
@@ -269,7 +269,7 @@ void Aircraft::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 	}
 }
 
-void Aircraft::createBullets(SceneNode& node, const TextureHolder& textures) const
+void Aircraft::createBullets(SceneNode& node, const trmb::TextureHolder& textures) const
 {
 	Projectile::Type type = isAllied() ? Projectile::AlliedBullet : Projectile::EnemyBullet;
 
@@ -292,7 +292,7 @@ void Aircraft::createBullets(SceneNode& node, const TextureHolder& textures) con
 	}
 }
 
-void Aircraft::createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const
+void Aircraft::createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const trmb::TextureHolder& textures) const
 {
 	std::unique_ptr<Projectile> projectile(new Projectile(type, textures));
 
@@ -305,7 +305,7 @@ void Aircraft::createProjectile(SceneNode& node, Projectile::Type type, float xO
 	node.attachChild(std::move(projectile));
 }
 
-void Aircraft::createPickup(SceneNode& node, const TextureHolder& textures) const
+void Aircraft::createPickup(SceneNode& node, const trmb::TextureHolder& textures) const
 {
 	auto type = static_cast<Pickup::Type>(randomInt(Pickup::TypeCount));
 

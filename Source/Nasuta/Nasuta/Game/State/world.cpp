@@ -1,4 +1,5 @@
 #include "world.h"
+#include "../Resources/resourceIdentifiers.h"
 #include "../SceneNode/pickup.h"
 #include "../SceneNode/projectile.h"
 
@@ -13,7 +14,7 @@
 #include <limits>
 
 
-World::World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sounds)
+World::World(sf::RenderTarget& outputTarget, trmb::FontHolder& fonts, SoundPlayer& sounds)
 : mTarget(outputTarget)
 , mSceneTexture()
 , mWorldView(outputTarget.getDefaultView())

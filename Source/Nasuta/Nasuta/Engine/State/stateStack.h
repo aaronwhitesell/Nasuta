@@ -3,7 +3,6 @@
 
 #include "state.h"
 #include "stateIdentifiers.h"
-#include "../Resource/resourceIdentifiers.h"
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>

@@ -2,8 +2,8 @@
 #define LABEL_H
 
 #include "component.h"
-#include "../Resource/resourceHolder.h"
-#include "../Resource/resourceIdentifiers.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/Text.hpp>
 
@@ -18,7 +18,7 @@ public:
 
 
 public:
-						Label(const std::string& text, const FontHolder& fonts);
+						Label(const std::string& text, const trmb::FontHolder& fonts);
 	
 	virtual bool		isSelectable() const;
 	void				setText(const std::string& text);

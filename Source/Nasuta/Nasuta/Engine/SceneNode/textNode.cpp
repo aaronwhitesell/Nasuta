@@ -1,10 +1,12 @@
 #include "textNode.h"
 #include "../utility.h"
 
+#include "../../Game/Resources/resourceIdentifiers.h"
+
 #include <SFML/Graphics/RenderTarget.hpp>
 
 
-TextNode::TextNode(const FontHolder& fonts, const std::string& text)
+TextNode::TextNode(const trmb::FontHolder& fonts, const std::string& text)
 {
 	mText.setFont(fonts.get(Fonts::Main));
 	mText.setCharacterSize(20);

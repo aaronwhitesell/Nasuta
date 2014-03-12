@@ -1,8 +1,9 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
 
-#include "../../Engine/Resource/resourceIdentifiers.h"
 #include "../../Engine/SceneNode/entity.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 
@@ -20,7 +21,7 @@ public:
 
 
 public:
-							Projectile(Type type, const TextureHolder& textures);
+							Projectile(Type type, const trmb::TextureHolder& textures);
 
 	void					guideTowards(sf::Vector2f position);
 	bool					isGuided() const;

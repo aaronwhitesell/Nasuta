@@ -2,6 +2,7 @@
 #include "State/state.h"
 #include "State/stateIdentifiers.h"
 
+#include "../Game/Resources/resourceIdentifiers.h"
 #include "../Game/State/gameState.h"
 #include "../Game/State/gameOverState.h"
 #include "../Game/State/menuState.h"

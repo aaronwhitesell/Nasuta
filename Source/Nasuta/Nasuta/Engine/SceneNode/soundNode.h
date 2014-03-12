@@ -2,7 +2,8 @@
 #define SOUND_NODE_H
 
 #include "sceneNode.h"
-#include "../Resource/resourceIdentifiers.h"
+
+#include "../../Game/Resources/resourceIdentifiers.h"
 
 
 class SoundPlayer;

@@ -1,5 +1,7 @@
 #include "label.h"
 
+#include "../../Game/Resources/resourceIdentifiers.h"
+
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
@@ -7,7 +9,7 @@
 namespace GUI
 {
 
-Label::Label(const std::string& text, const FontHolder& fonts)
+Label::Label(const std::string& text, const trmb::FontHolder& fonts)
 : mText(text, fonts.get(Fonts::Main), 16)
 {
 }

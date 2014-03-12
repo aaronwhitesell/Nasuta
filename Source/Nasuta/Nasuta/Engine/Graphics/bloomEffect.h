@@ -2,8 +2,8 @@
 #define BLOOM_EFFECT_H
 
 #include "postEffect.h"
-#include "../Resource/resourceHolder.h"
-#include "../Resource/resourceIdentifiers.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/Shader.hpp>
 #include <SFML/Graphics/RenderTexture.hpp>
@@ -34,7 +34,7 @@ private:
 
 
 private:
-	ShaderHolder		mShaders;
+	trmb::ShaderHolder	mShaders;
 	sf::RenderTexture	mBrightnessTexture;
 	RenderTextureArray  mFirstPassTextures;
 	RenderTextureArray  mSecondPassTextures;

@@ -1,8 +1,7 @@
 #ifndef SOUND_PLAYER_H
 #define SOUND_PLAYER_H
 
-#include "../Resource/resourceHolder.h"
-#include "../Resource/resourceIdentifiers.h"
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
@@ -25,7 +24,7 @@ public:
 	sf::Vector2f				getListenerPosition() const;
 
 private:
-	SoundBufferHolder			mSoundBuffers;
+	trmb::SoundBufferHolder		mSoundBuffers;
 	std::list<sf::Sound>		mSounds;
 };
 

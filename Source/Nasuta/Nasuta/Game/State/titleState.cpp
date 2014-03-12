@@ -1,7 +1,7 @@
 #include "titleState.h"
+#include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
-#include "../../Engine/Resource/resourceHolder.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 

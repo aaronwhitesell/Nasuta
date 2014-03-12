@@ -3,7 +3,8 @@
 
 #include "sceneNode.h"
 #include "../Graphics/particle.h"
-#include "../Resource/resourceIdentifiers.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/VertexArray.hpp>
 
@@ -13,7 +14,7 @@
 class ParticleNode : public SceneNode
 {
 public:
-							ParticleNode(Particle::Type type, const TextureHolder& textures);
+							ParticleNode(Particle::Type type, const trmb::TextureHolder& textures);
 
 	void					addParticle(sf::Vector2f position);
 	Particle::Type			getParticleType() const;

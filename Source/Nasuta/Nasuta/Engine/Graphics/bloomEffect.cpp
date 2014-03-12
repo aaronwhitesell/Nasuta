@@ -1,5 +1,6 @@
 #include "bloomEffect.h"
 
+#include "../../Game/Resources/resourceIdentifiers.h"
 
 BloomEffect::BloomEffect()
 : mShaders()

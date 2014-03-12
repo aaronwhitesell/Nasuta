@@ -5,9 +5,10 @@
 
 #include "../../Engine/Command/command.h"
 #include "../../Engine/Graphics/animation.h"
-#include "../../Engine/Resource/resourceIdentifiers.h"
 #include "../../Engine/SceneNode/entity.h"
 #include "../../Engine/SceneNode/textNode.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 
@@ -25,7 +26,7 @@ public:
 
 
 public:
-							Aircraft(Type type, const TextureHolder& textures, const FontHolder& fonts);
+							Aircraft(Type type, const trmb::TextureHolder& textures, const trmb::FontHolder& fonts);
 
 	virtual void			updateCurrent(sf::Time dt, CommandQueue& commands);
 	virtual unsigned int	getCategory() const;
@@ -50,9 +51,9 @@ private:
 	void					checkPickupDrop(CommandQueue& commands);
 	void					checkProjectileLaunch(sf::Time dt, CommandQueue& commands);
 
-	void					createBullets(SceneNode& node, const TextureHolder& textures) const;
-	void					createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const;
-	void					createPickup(SceneNode& node, const TextureHolder& textures) const;
+	void					createBullets(SceneNode& node, const trmb::TextureHolder& textures) const;
+	void					createProjectile(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const trmb::TextureHolder& textures) const;
+	void					createPickup(SceneNode& node, const trmb::TextureHolder& textures) const;
 
 	void					updateTexts();
 	void					updateRollAnimation();

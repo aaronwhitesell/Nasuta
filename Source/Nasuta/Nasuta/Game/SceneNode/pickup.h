@@ -2,8 +2,9 @@
 #define PICKUP_H
 
 #include "../../Engine/Command/command.h"
-#include "../../Engine/Resource/resourceIdentifiers.h"
 #include "../../Engine/SceneNode/entity.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 
@@ -24,7 +25,7 @@ public:
 
 
 public:
-							Pickup(Type type, const TextureHolder& textures);
+							Pickup(Type type, const trmb::TextureHolder& textures);
 
 	virtual unsigned int	getCategory() const;
 	virtual sf::FloatRect	getBoundingRect() const;

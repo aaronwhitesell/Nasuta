@@ -1,13 +1,13 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "Resource/resourceHolder.h"
-#include "Resource/resourceIdentifiers.h"
 #include "Sound/musicPlayer.h"
 #include "Sound/soundPlayer.h"
 #include "State/stateStack.h"
 
 #include "../Game/player.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -34,8 +34,8 @@ private:
 	static const sf::Time	TimePerFrame;
 
 	sf::RenderWindow		mWindow;
-	TextureHolder			mTextures;
-	FontHolder				mFonts;
+	trmb::TextureHolder		mTextures;
+	trmb::FontHolder		mFonts;
 	Player					mPlayer;
 
 	MusicPlayer				mMusic;

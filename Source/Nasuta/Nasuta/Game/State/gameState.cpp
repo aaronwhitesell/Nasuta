@@ -1,4 +1,5 @@
 #include "gameState.h"
+#include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/Sound/musicPlayer.h"
 

@@ -1,7 +1,7 @@
 #include "projectile.h"
+#include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
-#include "../../Engine/Resource/resourceHolder.h"
 #include "../../Engine/SceneNode/emitterNode.h"
 
 #include "../../../../3rdParty/TinyXML2/tinyxml2.h"
@@ -13,7 +13,7 @@
 #include <cmath>
 
 
-Projectile::Projectile(Type type, const TextureHolder& textures)
+Projectile::Projectile(Type type, const trmb::TextureHolder& textures)
 : Entity(1)
 , mType(type)
 , mSprite()

@@ -1,5 +1,6 @@
 #include "musicPlayer.h"
 
+#include "../../Game/Resources/resourceIdentifiers.h"
 
 MusicPlayer::MusicPlayer()
 : mMusic()

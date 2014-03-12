@@ -1,8 +1,8 @@
 #include "gameOverState.h"
 #include "../player.h"
+#include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
-#include "../../Engine/Resource/resourceHolder.h"
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>

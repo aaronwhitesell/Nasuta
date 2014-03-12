@@ -1,15 +1,16 @@
 #ifndef MUSIC_PLAYER_H
 #define MUSIC_PLAYER_H
 
-#include "../Resource/resourceHolder.h"
-#include "../Resource/resourceIdentifiers.h"
-
 #include <SFML/Audio/Music.hpp>
 #include <SFML/System/NonCopyable.hpp>
 
 #include <map>
 #include <string>
 
+namespace Music
+{
+	enum ID : int;
+}
 
 class MusicPlayer : private sf::NonCopyable
 {

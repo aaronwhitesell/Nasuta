@@ -1,10 +1,10 @@
 #include "pickup.h"
 #include "aircraft.h"
+#include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
 #include "../../Engine/Command/category.h"
 #include "../../Engine/Command/commandQueue.h"
-#include "../../Engine/Resource/resourceHolder.h"
 
 #include "../../../../3rdParty/TinyXML2/tinyxml2.h"
 
@@ -14,7 +14,7 @@
 // For std::bind() placeholders _1, _2, ...
 using namespace std::placeholders;
 
-Pickup::Pickup(Type type, const TextureHolder& textures)
+Pickup::Pickup(Type type, const trmb::TextureHolder& textures)
 : Entity(1)
 , mType(type)
 , mSprite()

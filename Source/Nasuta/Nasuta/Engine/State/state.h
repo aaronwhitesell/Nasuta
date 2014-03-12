@@ -2,7 +2,8 @@
 #define STATE_H
 
 #include "stateIdentifiers.h"
-#include "../Resource/resourceIdentifiers.h"
+
+#include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
@@ -27,15 +28,15 @@ public:
 
 	struct Context
 	{
-							Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, Player& player, 
-								MusicPlayer& music, SoundPlayer& sounds);
+							Context(sf::RenderWindow& window, trmb::TextureHolder& textures, trmb::FontHolder& fonts,
+								Player& player, MusicPlayer& music, SoundPlayer& sounds);
 
-		sf::RenderWindow*	window;
-		TextureHolder*		textures;
-		FontHolder*			fonts;
-		Player*				player;
-		MusicPlayer*		music;
-		SoundPlayer*		sounds;
+		sf::RenderWindow*		window;
+		trmb::TextureHolder*	textures;
+		trmb::FontHolder*		fonts;
+		Player*					player;
+		MusicPlayer*			music;
+		SoundPlayer*			sounds;
 	};
 
 

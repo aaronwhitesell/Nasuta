@@ -1,5 +1,6 @@
 #include "particleNode.h"
-#include "../Resource/resourceHolder.h"
+
+#include "../../Game/Resources/resourceIdentifiers.h"
 
 #include "../../../../3rdParty/TinyXML2/tinyxml2.h"
 
@@ -9,7 +10,7 @@
 #include <algorithm>
 
 
-ParticleNode::ParticleNode(Particle::Type type, const TextureHolder& textures)
+ParticleNode::ParticleNode(Particle::Type type, const trmb::TextureHolder& textures)
 : SceneNode()
 , mParticles()
 , mTexture(textures.get(Textures::Particle))

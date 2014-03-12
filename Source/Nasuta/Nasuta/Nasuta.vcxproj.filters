@@ -66,9 +66,6 @@
     <Filter Include="Header Files\Engine\Command">
       <UniqueIdentifier>{7ddcd74b-c851-4684-abb1-aa802a2f2f5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\Resource">
-      <UniqueIdentifier>{c3363f63-90d9-40e7-9298-d7aa26ea00f8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Engine\Command">
       <UniqueIdentifier>{ad5a741a-e422-4d8c-9265-80704c7e79db}</UniqueIdentifier>
     </Filter>
@@ -89,6 +86,9 @@
     </Filter>
     <Filter Include="Header Files\3rdParty\TinyXML2">
       <UniqueIdentifier>{8c67659f-7487-4c14-905a-a52ed584e6cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Resources">
+      <UniqueIdentifier>{0f2c92f8-a4af-4cb6-ad7d-edf79770cfd1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -200,17 +200,14 @@
     <ClInclude Include="Engine\Command\commandQueue.h">
       <Filter>Header Files\Engine\Command</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Resource\resourceHolder.h">
-      <Filter>Header Files\Engine\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Resource\resourceIdentifiers.h">
-      <Filter>Header Files\Engine\Resource</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Input\input.h">
       <Filter>Header Files\Engine\Input</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdParty\TinyXML2\tinyxml2.h">
       <Filter>Header Files\3rdParty\TinyXML2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Resources\resourceIdentifiers.h">
+      <Filter>Header Files\Game\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -322,10 +319,5 @@
     <ClCompile Include="..\..\3rdParty\TinyXML2\tinyxml2.cpp">
       <Filter>Source Files\3rdParty\TinyXML2</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Engine\Resource\resourceHolder.inl">
-      <Filter>Header Files\Engine\Resource</Filter>
-    </None>
   </ItemGroup>
 </Project>

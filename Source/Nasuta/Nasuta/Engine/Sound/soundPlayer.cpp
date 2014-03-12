@@ -1,5 +1,7 @@
 #include "soundPlayer.h"
 
+#include "../../Game/Resources/resourceIdentifiers.h"
+
 #include <SFML/Audio/Listener.hpp>
 
 #include <cmath>
