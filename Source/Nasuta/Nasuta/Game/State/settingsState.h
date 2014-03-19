@@ -6,7 +6,8 @@
 #include "../../Engine/GUI/button.h"
 #include "../../Engine/GUI/container.h"
 #include "../../Engine/GUI/label.h"
-#include "../../Engine/State/state.h"
+
+#include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -14,10 +15,21 @@
 #include <array>
 
 
-class SettingsState : public State
+namespace sf
+{
+	class Event;
+	class Time;
+}
+
+namespace trmb
+{
+	class StateStack;
+}
+
+class SettingsState : public trmb::State
 {
 public:
-							SettingsState(StateStack& stack, Context context);
+							SettingsState(trmb::StateStack& stack, trmb::State::Context context);
 
 	virtual void			draw();
 	virtual bool			update(sf::Time dt);
@@ -26,7 +38,7 @@ public:
 
 private:
 	void					updateLabels();
-	void					addButtonAndLabel(Player::Action action, float y, const std::string& text, Context context);
+	void					addButtonAndLabel(Player::Action action, float y, const std::string& text, trmb::State::Context context);
 
 
 private:

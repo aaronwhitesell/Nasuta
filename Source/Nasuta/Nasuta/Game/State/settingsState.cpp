@@ -4,9 +4,10 @@
 #include "../../Engine/utility.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
 
 
-SettingsState::SettingsState(StateStack& stack, Context context)
+SettingsState::SettingsState(trmb::StateStack& stack, trmb::State::Context context)
 : State(stack, context)
 , mGUIContainer(context.window)
 {
@@ -144,7 +145,7 @@ void SettingsState::updateLabels()
 	}
 }
 
-void SettingsState::addButtonAndLabel(Player::Action action, float y, const std::string& text, Context context)
+void SettingsState::addButtonAndLabel(Player::Action action, float y, const std::string& text, trmb::State::Context context)
 {
 	mBindingButtons[action] = std::make_shared<GUI::Button>(context, 200, 50);
 	mBindingButtons[action]->setPosition(20.f, y);

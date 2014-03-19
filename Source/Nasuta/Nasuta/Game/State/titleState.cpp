@@ -1,13 +1,16 @@
 #include "titleState.h"
+#include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
+#include <SFML/System/Time.hpp>
 
 
-TitleState::TitleState(StateStack& stack, Context context)
-: State(stack, context)
+TitleState::TitleState(trmb::StateStack& stack, trmb::State::Context context)
+: trmb::State(stack, context)
 , mText()
 , mShowText(true)
 , mTextEffectTime(sf::Time::Zero)

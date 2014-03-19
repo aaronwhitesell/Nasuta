@@ -1,6 +1,4 @@
 #include "application.h"
-#include "State/state.h"
-#include "State/stateIdentifiers.h"
 
 #include "../Game/Resources/resourceIdentifiers.h"
 #include "../Game/State/gameState.h"
@@ -8,7 +6,10 @@
 #include "../Game/State/menuState.h"
 #include "../Game/State/pauseState.h"
 #include "../Game/State/settingsState.h"
+#include "../Game/State/stateIdentifiers.h"
 #include "../Game/State/titleState.h"
+
+#include "Trambo/States/state.h"
 
 #include <string>
 
@@ -21,7 +22,7 @@ Application::Application()
 , mPlayer()
 , mMusic()
 , mSounds()
-, mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer, mMusic, mSounds))
+, mStateStack(trmb::State::Context(mWindow, mTextures, mFonts, mPlayer, mMusic, mSounds))
 , mStatisticsText()
 , mStatisticsUpdateTime()
 , mStatisticsNumFrames(0)

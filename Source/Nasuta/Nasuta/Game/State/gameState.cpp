@@ -1,13 +1,16 @@
 #include "gameState.h"
+#include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/Sound/musicPlayer.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
 
 
-GameState::GameState(StateStack& stack, Context context)
-: State(stack, context)
+GameState::GameState(trmb::StateStack& stack, trmb::State::Context context)
+: trmb::State(stack, context)
 , mWorld(*context.window, *context.fonts, *context.sounds)
 , mPlayer(*context.player)
 {

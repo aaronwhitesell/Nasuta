@@ -1,4 +1,5 @@
 #include "gameOverState.h"
+#include "stateIdentifiers.h"
 #include "../player.h"
 #include "../Resources/resourceIdentifiers.h"
 
@@ -7,10 +8,11 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
+#include <SFML/System/Time.hpp>
 
 
-GameOverState::GameOverState(StateStack& stack, Context context)
-: State(stack, context)
+GameOverState::GameOverState(trmb::StateStack& stack, trmb::State::Context context)
+: trmb::State(stack, context)
 , mGameOverText()
 , mElapsedTime(sf::Time::Zero)
 {

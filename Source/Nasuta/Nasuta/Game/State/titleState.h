@@ -1,16 +1,27 @@
 #ifndef TITLE_STATE_H
 #define TITLE_STATE_H
 
-#include "../../Engine/State/state.h"
+#include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/System/Time.hpp>
 
 
-class TitleState : public State
+namespace sf
+{
+	class Event;
+}
+
+namespace trmb
+{
+	class StateStack;
+}
+
+class TitleState : public trmb::State
 {
 public:
-						TitleState(StateStack& stack, Context context);
+						TitleState(trmb::StateStack& stack, trmb::State::Context context);
 
 	virtual void		draw();
 	virtual bool		update(sf::Time dt);

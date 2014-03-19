@@ -18,9 +18,6 @@
     <Filter Include="Header Files\Engine\GUI">
       <UniqueIdentifier>{634515f1-3ce9-4f58-9a8d-e4d11b0a0787}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\State">
-      <UniqueIdentifier>{fc830702-a1b0-4e4c-9f32-c955fff1268e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\SceneNode">
       <UniqueIdentifier>{da43a494-aeb0-4849-bd9c-edf8b0ab4a82}</UniqueIdentifier>
     </Filter>
@@ -53,9 +50,6 @@
     </Filter>
     <Filter Include="Source Files\Engine\GUI">
       <UniqueIdentifier>{f60452c3-a2d5-4635-bf96-cdb929ef6f1e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\State">
-      <UniqueIdentifier>{1505c996-16c5-47b0-9310-ba805959d61b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Sound">
       <UniqueIdentifier>{05460d66-a153-486a-b5e1-7bd71a479ba5}</UniqueIdentifier>
@@ -143,15 +137,6 @@
     <ClInclude Include="Engine\Sound\soundPlayer.h">
       <Filter>Header Files\Engine\Sound</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\State\stateStack.h">
-      <Filter>Header Files\Engine\State</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\State\state.h">
-      <Filter>Header Files\Engine\State</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\State\stateIdentifiers.h">
-      <Filter>Header Files\Engine\State</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\application.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
@@ -209,6 +194,9 @@
     <ClInclude Include="Game\Resources\resourceIdentifiers.h">
       <Filter>Header Files\Game\Resources</Filter>
     </ClInclude>
+    <ClInclude Include="Game\State\stateIdentifiers.h">
+      <Filter>Header Files\Game\State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Graphics\postEffect.cpp">
@@ -258,12 +246,6 @@
     </ClCompile>
     <ClCompile Include="Engine\Sound\musicPlayer.cpp">
       <Filter>Source Files\Engine\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\State\stateStack.cpp">
-      <Filter>Source Files\Engine\State</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\State\state.cpp">
-      <Filter>Source Files\Engine\State</Filter>
     </ClCompile>
     <ClCompile Include="Engine\application.cpp">
       <Filter>Source Files\Engine</Filter>

@@ -9,7 +9,7 @@
 
 namespace Music
 {
-	enum ID : int;
+	enum ID : unsigned int;
 }
 
 class MusicPlayer : private sf::NonCopyable

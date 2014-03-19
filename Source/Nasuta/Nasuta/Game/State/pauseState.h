@@ -2,16 +2,28 @@
 #define PAUSE_STATE_H
 
 #include "../../Engine/GUI/container.h"
-#include "../../Engine/State/state.h"
+
+#include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
 
 
-class PauseState : public State
+namespace sf
+{
+	class Event;
+	class Time;
+}
+
+namespace trmb
+{
+	class StateStack;
+}
+
+class PauseState : public trmb::State
 {
 public:
-						PauseState(StateStack& stack, Context context);
+						PauseState(trmb::StateStack& stack, trmb::State::Context context);
 						~PauseState();
 
 	virtual void		draw();

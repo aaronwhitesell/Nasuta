@@ -1,4 +1,5 @@
 #include "pauseState.h"
+#include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
@@ -8,10 +9,11 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
+#include <SFML/Window/Event.hpp>
 
 
-PauseState::PauseState(StateStack& stack, Context context)
-: State(stack, context)
+PauseState::PauseState(trmb::StateStack& stack, trmb::State::Context context)
+: trmb::State(stack, context)
 , mBackgroundSprite()
 , mPausedText()
 , mGUIContainer(context.window)

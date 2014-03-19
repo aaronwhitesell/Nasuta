@@ -1,4 +1,5 @@
 #include "menuState.h"
+#include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
 #include "../../Engine/utility.h"
@@ -7,10 +8,11 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
+#include <SFML/Window/Event.hpp>
 
 
-MenuState::MenuState(StateStack& stack, Context context)
-: State(stack, context)
+MenuState::MenuState(trmb::StateStack& stack, trmb::State::Context context)
+: trmb::State(stack, context)
 , mGUIContainer(context.window)
 {
 	sf::Texture& texture = context.textures->get(Textures::TitleScreen);

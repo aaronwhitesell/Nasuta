@@ -3,11 +3,11 @@
 
 #include "Sound/musicPlayer.h"
 #include "Sound/soundPlayer.h"
-#include "State/stateStack.h"
 
 #include "../Game/player.h"
 
 #include "Trambo/Resources/resourceHolder.h"
+#include "Trambo/States/stateStack.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -40,7 +40,7 @@ private:
 
 	MusicPlayer				mMusic;
 	SoundPlayer				mSounds;
-	StateStack				mStateStack;
+	trmb::StateStack		mStateStack;
 
 	sf::Text				mStatisticsText;
 	sf::Time				mStatisticsUpdateTime;

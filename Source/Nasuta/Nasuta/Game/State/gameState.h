@@ -4,16 +4,27 @@
 #include "world.h"
 #include "../player.h"
 
-#include "../../Engine/State/state.h"
+#include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
 
 
-class GameState : public State
+namespace sf
+{
+	class Event;
+	class Time;
+}
+
+namespace trmb
+{
+	class StateStack;
+}
+
+class GameState : public trmb::State
 {
 public:
-						GameState(StateStack& stack, Context context);
+						GameState(trmb::StateStack& stack, trmb::State::Context context);
 
 	virtual void		draw();
 	virtual bool		update(sf::Time dt);

@@ -2,7 +2,8 @@
 #define BUTTON_H
 
 #include "component.h"
-#include "../State/state.h"
+
+#include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -31,7 +32,7 @@ public:
 	};
 
 public:
-							Button(State::Context context, int buttonWidth, int buttonHeight);
+							Button(trmb::State::Context context, int buttonWidth, int buttonHeight);
 								
 	void					setCallback(Callback callback);
 	void					setText(const std::string& text);

@@ -2,16 +2,28 @@
 #define GAME_OVER_STATE_H
 
 #include "../../Engine/GUI/container.h"
-#include "../../Engine/State/state.h"
+
+#include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
 
 
-class GameOverState : public State
+namespace sf
+{
+	class Event;
+	class Time;
+}
+
+namespace trmb
+{
+	class StateStack;
+}
+
+class GameOverState : public trmb::State
 {
 public:
-						GameOverState(StateStack& stack, Context context);
+						GameOverState(trmb::StateStack& stack, trmb::State::Context context);
 
 	virtual void		draw();
 	virtual bool		update(sf::Time dt);
