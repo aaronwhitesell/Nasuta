@@ -11,7 +11,7 @@
 class Projectile : public Entity
 {
 public:
-	enum Type
+	enum class Type
 	{
 		AlliedBullet,
 		EnemyBullet,

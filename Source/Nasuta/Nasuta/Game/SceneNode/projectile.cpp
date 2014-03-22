@@ -28,11 +28,11 @@ Projectile::Projectile(Type type, const trmb::TextureHolder& textures)
 	// Add particle system for missiles
 	if (isGuided())
 	{
-		std::unique_ptr<EmitterNode> smoke(new EmitterNode(Particle::Smoke));
+		std::unique_ptr<EmitterNode> smoke(new EmitterNode(Particle::Type::Smoke));
 		smoke->setPosition(0.f, getBoundingRect().height / 2.f);
 		attachChild(std::move(smoke));
 
-		std::unique_ptr<EmitterNode> propellant(new EmitterNode(Particle::Propellant));
+		std::unique_ptr<EmitterNode> propellant(new EmitterNode(Particle::Type::Propellant));
 		propellant->setPosition(0.f, getBoundingRect().height / 2.f);
 		attachChild(std::move(propellant));
 
@@ -47,7 +47,7 @@ void Projectile::guideTowards(sf::Vector2f position)
 
 bool Projectile::isGuided() const
 {
-	return mType == Missile;
+	return mType == Type::Missile;
 }
 
 void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
@@ -74,7 +74,7 @@ void Projectile::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) 
 
 unsigned int Projectile::getCategory() const
 {
-	if (mType == EnemyBullet)
+	if (mType == Type::EnemyBullet)
 		return Category::EnemyProjectile;
 	else
 		return Category::AlliedProjectile;
@@ -122,9 +122,10 @@ Textures::ID Projectile::toTexture(const std::string& str) const
 {
 	Textures::ID ret;
 	bool success = false;
-	if (str == "Textures::Entities")
+	if (str == "Textures::ID::Entities")
 	{
-		ret = Textures::Entities;
+		// ALW - Should match str (fragile)
+		ret = Textures::ID::Entities;
 		success = true;
 	}
 

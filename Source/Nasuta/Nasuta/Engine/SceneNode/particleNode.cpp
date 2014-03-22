@@ -13,7 +13,7 @@
 ParticleNode::ParticleNode(Particle::Type type, const trmb::TextureHolder& textures)
 : SceneNode()
 , mParticles()
-, mTexture(textures.get(Textures::Particle))
+, mTexture(textures.get(Textures::ID::Particle))
 , mType(type)
 , mVertexArray(sf::Quads)
 , mNeedsVertexUpdate(true)

@@ -29,17 +29,17 @@ Application::Application()
 {
 	mWindow.setKeyRepeatEnabled(false);
 
-	mFonts.load(Fonts::Main, "Data/Fonts/Sansation.ttf");
+	mFonts.load(Fonts::ID::Main, "Data/Fonts/Sansation.ttf");
 
-	mTextures.load(Textures::TitleScreen,	"Data/Textures/TitleScreen.png");
-	mTextures.load(Textures::Buttons,		"Data/Textures/Buttons.png");
+	mTextures.load(Textures::ID::TitleScreen,	"Data/Textures/TitleScreen.png");
+	mTextures.load(Textures::ID::Buttons,		"Data/Textures/Buttons.png");
 
-	mStatisticsText.setFont(mFonts.get(Fonts::Main));
+	mStatisticsText.setFont(mFonts.get(Fonts::ID::Main));
 	mStatisticsText.setPosition(5.f, 5.f);
 	mStatisticsText.setCharacterSize(10u);
 
 	registerStates();
-	mStateStack.pushState(States::Title);
+	mStateStack.pushState(States::ID::Title);
 
 	mMusic.setVolume(75.f);
 }
@@ -114,10 +114,10 @@ void Application::updateStatistics(sf::Time dt)
 
 void Application::registerStates()
 {
-	mStateStack.registerState<TitleState>(States::Title);
-	mStateStack.registerState<MenuState>(States::Menu);
-	mStateStack.registerState<GameState>(States::Game);
-	mStateStack.registerState<PauseState>(States::Pause);
-	mStateStack.registerState<SettingsState>(States::Settings);
-	mStateStack.registerState<GameOverState>(States::GameOver);
+	mStateStack.registerState<TitleState>(States::ID::Title);
+	mStateStack.registerState<MenuState>(States::ID::Menu);
+	mStateStack.registerState<GameState>(States::ID::Game);
+	mStateStack.registerState<PauseState>(States::ID::Pause);
+	mStateStack.registerState<SettingsState>(States::ID::Settings);
+	mStateStack.registerState<GameOverState>(States::ID::GameOver);
 }

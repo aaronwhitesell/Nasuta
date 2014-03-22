@@ -25,7 +25,7 @@ public:
 		ActionCount
 	};
 
-	enum MissionStatus
+	enum class MissionStatus
 	{
 		MissionRunning,
 		MissionSuccess,

@@ -8,10 +8,10 @@ BloomEffect::BloomEffect()
 , mFirstPassTextures()
 , mSecondPassTextures()
 {
-	mShaders.load(Shaders::BrightnessPass,   "Data/Shaders/Fullpass.vert", "Shaders/Brightness.frag");
-	mShaders.load(Shaders::DownSamplePass,   "Data/Shaders/Fullpass.vert", "Shaders/DownSample.frag");
-	mShaders.load(Shaders::GaussianBlurPass, "Data/Shaders/Fullpass.vert", "Shaders/GuassianBlur.frag");
-	mShaders.load(Shaders::AddPass,          "Data/Shaders/Fullpass.vert", "Shaders/Add.frag");
+	mShaders.load(Shaders::ID::BrightnessPass,   "Data/Shaders/Fullpass.vert", "Shaders/Brightness.frag");
+	mShaders.load(Shaders::ID::DownSamplePass,   "Data/Shaders/Fullpass.vert", "Shaders/DownSample.frag");
+	mShaders.load(Shaders::ID::GaussianBlurPass, "Data/Shaders/Fullpass.vert", "Shaders/GuassianBlur.frag");
+	mShaders.load(Shaders::ID::AddPass,          "Data/Shaders/Fullpass.vert", "Shaders/Add.frag");
 }
 
 void BloomEffect::apply(const sf::RenderTexture& input, sf::RenderTarget& output)
@@ -52,7 +52,7 @@ void BloomEffect::prepareTextures(sf::Vector2u size)
 
 void BloomEffect::filterBright(const sf::RenderTexture& input, sf::RenderTexture& output)
 {
-	sf::Shader& brightness = mShaders.get(Shaders::BrightnessPass);
+	sf::Shader& brightness = mShaders.get(Shaders::ID::BrightnessPass);
 
 	brightness.setParameter("source", input.getTexture());
 	applyShader(brightness, output);
@@ -72,7 +72,7 @@ void BloomEffect::blurMultipass(RenderTextureArray& renderTextures)
 
 void BloomEffect::blur(const sf::RenderTexture& input, sf::RenderTexture& output, sf::Vector2f offsetFactor)
 {
-	sf::Shader& gaussianBlur = mShaders.get(Shaders::GaussianBlurPass);
+	sf::Shader& gaussianBlur = mShaders.get(Shaders::ID::GaussianBlurPass);
 
 	gaussianBlur.setParameter("source", input.getTexture());
 	gaussianBlur.setParameter("offsetFactor", offsetFactor);
@@ -82,7 +82,7 @@ void BloomEffect::blur(const sf::RenderTexture& input, sf::RenderTexture& output
 
 void BloomEffect::downsample(const sf::RenderTexture& input, sf::RenderTexture& output)
 {
-	sf::Shader& downSampler = mShaders.get(Shaders::DownSamplePass);
+	sf::Shader& downSampler = mShaders.get(Shaders::ID::DownSamplePass);
 
 	downSampler.setParameter("source", input.getTexture());
 	downSampler.setParameter("sourceSize", sf::Vector2f(input.getSize()));
@@ -92,7 +92,7 @@ void BloomEffect::downsample(const sf::RenderTexture& input, sf::RenderTexture& 
 
 void BloomEffect::add(const sf::RenderTexture& source, const sf::RenderTexture& bloom, sf::RenderTarget& output)
 {
-	sf::Shader& adder = mShaders.get(Shaders::AddPass);
+	sf::Shader& adder = mShaders.get(Shaders::ID::AddPass);
 
 	adder.setParameter("source", source.getTexture());
 	adder.setParameter("bloom", bloom.getTexture());

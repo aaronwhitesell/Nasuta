@@ -15,7 +15,7 @@ MenuState::MenuState(trmb::StateStack& stack, trmb::State::Context context)
 : trmb::State(stack, context)
 , mGUIContainer(context.window)
 {
-	sf::Texture& texture = context.textures->get(Textures::TitleScreen);
+	sf::Texture& texture = context.textures->get(Textures::ID::TitleScreen);
 	mBackgroundSprite.setTexture(texture);
 
 	auto playButton = std::make_shared<GUI::Button>(context, 200, 50);
@@ -24,7 +24,7 @@ MenuState::MenuState(trmb::StateStack& stack, trmb::State::Context context)
 	playButton->setCallback([this] ()
 	{
 		requestStackPop();
-		requestStackPush(States::Game);
+		requestStackPush(States::ID::Game);
 	});
 
 	auto settingsButton = std::make_shared<GUI::Button>(context, 200, 50);
@@ -32,7 +32,7 @@ MenuState::MenuState(trmb::StateStack& stack, trmb::State::Context context)
 	settingsButton->setText("Settings");
 	settingsButton->setCallback([this] ()
 	{
-		requestStackPush(States::Settings);
+		requestStackPush(States::ID::Settings);
 	});
 
 	auto exitButton = std::make_shared<GUI::Button>(context, 200, 50);
@@ -48,7 +48,7 @@ MenuState::MenuState(trmb::StateStack& stack, trmb::State::Context context)
 	mGUIContainer.pack(exitButton);
 
 	// Play menu theme
-	context.music->play(Music::MenuTheme);
+	context.music->play(Music::ID::MenuTheme);
 }
 
 void MenuState::draw()
@@ -71,3 +71,4 @@ bool MenuState::handleEvent(const sf::Event& event)
 	mGUIContainer.handleEvent(event);
 	return false;
 }
+

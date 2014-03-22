@@ -21,24 +21,24 @@ SoundPlayer::SoundPlayer()
 : mSoundBuffers()
 , mSounds()
 {
-	mSoundBuffers.load(SoundEffect::AlliedGunfire,  "Data/Sound/AlliedGunfire.wav");
-	mSoundBuffers.load(SoundEffect::EnemyGunfire,	"Data/Sound/EnemyGunfire.wav");
-	mSoundBuffers.load(SoundEffect::Explosion1,		"Data/Sound/Explosion1.wav");
-	mSoundBuffers.load(SoundEffect::Explosion2,		"Data/Sound/Explosion2.wav");
-	mSoundBuffers.load(SoundEffect::LaunchMissile,	"Data/Sound/LaunchMissile.wav");
-	mSoundBuffers.load(SoundEffect::CollectPickup,	"Data/Sound/CollectPickup.wav");
-	mSoundBuffers.load(SoundEffect::Button,			"Data/Sound/Button.wav");
+	mSoundBuffers.load(SoundEffects::ID::AlliedGunfire, "Data/Sound/AlliedGunfire.wav");
+	mSoundBuffers.load(SoundEffects::ID::EnemyGunfire,	"Data/Sound/EnemyGunfire.wav");
+	mSoundBuffers.load(SoundEffects::ID::Explosion1,	"Data/Sound/Explosion1.wav");
+	mSoundBuffers.load(SoundEffects::ID::Explosion2,	"Data/Sound/Explosion2.wav");
+	mSoundBuffers.load(SoundEffects::ID::LaunchMissile, "Data/Sound/LaunchMissile.wav");
+	mSoundBuffers.load(SoundEffects::ID::CollectPickup,	"Data/Sound/CollectPickup.wav");
+	mSoundBuffers.load(SoundEffects::ID::Button,		"Data/Sound/Button.wav");
 
 	// Listener points towards the screen (default in SFML)
 	sf::Listener::setDirection(0.f, 0.f, -1.f);
 }
 
-void SoundPlayer::play(SoundEffect::ID effect)
+void SoundPlayer::play(SoundEffects::ID effect)
 {
 	play(effect, getListenerPosition());
 }
 
-void SoundPlayer::play(SoundEffect::ID effect, sf::Vector2f position)
+void SoundPlayer::play(SoundEffects::ID effect, sf::Vector2f position)
 {
 	mSounds.push_back(sf::Sound());
 	sf::Sound& sound = mSounds.back();

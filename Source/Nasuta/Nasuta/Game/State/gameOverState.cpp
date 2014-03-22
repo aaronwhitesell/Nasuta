@@ -16,11 +16,11 @@ GameOverState::GameOverState(trmb::StateStack& stack, trmb::State::Context conte
 , mGameOverText()
 , mElapsedTime(sf::Time::Zero)
 {
-	sf::Font& font = context.fonts->get(Fonts::Main);
+	sf::Font& font = context.fonts->get(Fonts::ID::Main);
 	sf::Vector2f windowSize(context.window->getSize());
 
 	mGameOverText.setFont(font);
-	if (context.player->getMissionStatus() == Player::MissionFailure)
+	if (context.player->getMissionStatus() == Player::MissionStatus::MissionFailure)
 		mGameOverText.setString("Mission failed!");
 	else
 		mGameOverText.setString("Mission successful!");
@@ -51,7 +51,7 @@ bool GameOverState::update(sf::Time dt)
 	if (mElapsedTime > sf::seconds(3))
 	{
 		requestStateClear();
-		requestStackPush(States::Menu);
+		requestStackPush(States::ID::Menu);
 	}
 	return false;
 }

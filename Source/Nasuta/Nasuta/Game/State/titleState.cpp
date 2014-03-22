@@ -15,9 +15,9 @@ TitleState::TitleState(trmb::StateStack& stack, trmb::State::Context context)
 , mShowText(true)
 , mTextEffectTime(sf::Time::Zero)
 {
-	mBackgroundSprite.setTexture(context.textures->get(Textures::TitleScreen));
+	mBackgroundSprite.setTexture(context.textures->get(Textures::ID::TitleScreen));
 
-	mText.setFont(context.fonts->get(Fonts::Main));
+	mText.setFont(context.fonts->get(Fonts::ID::Main));
 	mText.setString("Press any key to start");
 	centerOrigin(mText);
 	mText.setPosition(sf::Vector2f(context.window->getSize() / 2u));
@@ -51,7 +51,7 @@ bool TitleState::handleEvent(const sf::Event& event)
 	if (event.type == sf::Event::KeyReleased || event.type == sf::Event::MouseButtonReleased) // ALW - TODO - Joystick UI
 	{
 		requestStackPop();
-		requestStackPush(States::Menu);
+		requestStackPush(States::ID::Menu);
 	}
 
 	return true;

@@ -23,7 +23,7 @@ public:
 	typedef std::shared_ptr<Button>		Ptr;
 	typedef std::function<void()>		Callback;
 
-	enum Type
+	enum class Type
 	{
 		Normal,
 		Selected,

@@ -5,7 +5,7 @@
 		<hitpoints        attribute="100"/>
 		<speed            attribute="200.0"/>
 		<fireInterval     attribute="1"/>
-		<texture          attribute="Textures::Entities"/>
+		<texture          attribute="Textures::ID::Entities"/>
 		<textureRect      attribute0="0" attribute1="0" attribute2="48" attribute3="64"/>
 		<hasRollAnimation attribute="true"/>
 		<directions>
@@ -15,7 +15,7 @@
 		<hitpoints        attribute="20"/>
 		<speed            attribute="80.0"/>
 		<fireInterval     attribute="0"/>
-		<texture          attribute="Textures::Entities"/>
+		<texture          attribute="Textures::ID::Entities"/>
 		<textureRect      attribute0="144" attribute1="0" attribute2="84" attribute3="64"/>
 		<hasRollAnimation attribute="false"/>
 		<directions>
@@ -28,7 +28,7 @@
 		<hitpoints        attribute="40"/>
 		<speed            attribute="50.0"/>
 		<fireInterval     attribute="2"/>
-		<texture          attribute="Textures::Entities"/>
+		<texture          attribute="Textures::ID::Entities"/>
 		<textureRect      attribute0="228" attribute1="0" attribute2="60" attribute3="59"/>
 		<hasRollAnimation attribute="false"/>
 		<directions>

@@ -18,7 +18,7 @@ PauseState::PauseState(trmb::StateStack& stack, trmb::State::Context context)
 , mPausedText()
 , mGUIContainer(context.window)
 {
-	sf::Font& font = context.fonts->get(Fonts::Main);
+	sf::Font& font = context.fonts->get(Fonts::ID::Main);
 	sf::Vector2f windowSize(context.window->getSize());
 
 	mPausedText.setFont(font);
@@ -41,7 +41,7 @@ PauseState::PauseState(trmb::StateStack& stack, trmb::State::Context context)
 	backToMenuButton->setCallback([this] ()
 	{
 		requestStateClear();
-		requestStackPush(States::Menu);
+		requestStackPush(States::ID::Menu);
 	});
 
 	mGUIContainer.pack(returnButton);

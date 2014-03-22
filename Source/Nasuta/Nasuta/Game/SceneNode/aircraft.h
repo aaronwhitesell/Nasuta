@@ -16,7 +16,7 @@
 class Aircraft : public Entity // inherits SceneNode indirectly 
 {
 public:
-	enum Type
+	enum class Type
 	{
 		Eagle,
 		Raptor,
@@ -42,7 +42,7 @@ public:
 
 	void					fire();
 	void					launchMissile();
-	void					playLocalSound(CommandQueue& commands, SoundEffect::ID effect);
+	void					playLocalSound(CommandQueue& commands, SoundEffects::ID effect);
 
 
 private:

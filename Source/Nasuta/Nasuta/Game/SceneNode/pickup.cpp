@@ -106,9 +106,10 @@ Textures::ID Pickup::toTexture(const std::string& str) const
 {
 	Textures::ID ret;
 	bool success = false;
-	if (str == "Textures::Entities")
+	if (str == "Textures::ID::Entities")
 	{
-		ret = Textures::Entities;
+		// ALW - Should match str (fragile)
+		ret = Textures::ID::Entities;
 		success = true;
 	}
 

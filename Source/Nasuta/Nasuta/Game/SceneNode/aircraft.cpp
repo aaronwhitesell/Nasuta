@@ -20,7 +20,7 @@ Aircraft::Aircraft(Type type, const trmb::TextureHolder& textures, const trmb::F
 : Entity()
 , mType(type)
 , mSprite()
-, mExplosion(textures.get(Textures::Explosion))
+, mExplosion(textures.get(Textures::ID::Explosion))
 , mFireCommand()
 , mMissileCommand()
 , mFireCountdown(sf::Time::Zero)
@@ -59,7 +59,7 @@ Aircraft::Aircraft(Type type, const trmb::TextureHolder& textures, const trmb::F
 	mMissileCommand.category = Category::SceneAirLayer;
 	mMissileCommand.action   = [this, &textures] (SceneNode& node, sf::Time)
 	{
-		createProjectile(node, Projectile::Missile, 0.f, 0.5f, textures);
+		createProjectile(node, Projectile::Type::Missile, 0.f, 0.5f, textures);
 	};
 
 	mDropPickupCommand.category = Category::SceneAirLayer;
@@ -106,7 +106,7 @@ void Aircraft::updateCurrent(sf::Time dt, CommandQueue& commands)
 		// Play explosion sound only once
 		if (!mPlayedExplosionSound)
 		{
-			SoundEffect::ID soundEffect = (randomInt(2) == 0) ? SoundEffect::Explosion1 : SoundEffect::Explosion2;
+			SoundEffects::ID soundEffect = (randomInt(2) == 0) ? SoundEffects::ID::Explosion1 : SoundEffects::ID::Explosion2;
 			playLocalSound(commands, soundEffect);
 
 			mPlayedExplosionSound = true;
@@ -148,7 +148,7 @@ void Aircraft::remove()
 
 bool Aircraft::isAllied() const
 {
-	return mType == Eagle;
+	return mType == Type::Eagle;
 }
 
 float Aircraft::getMaxSpeed() const
@@ -189,7 +189,7 @@ void Aircraft::launchMissile()
 	}
 }
 
-void Aircraft::playLocalSound(CommandQueue& commands, SoundEffect::ID effect)
+void Aircraft::playLocalSound(CommandQueue& commands, SoundEffects::ID effect)
 {
 	sf::Vector2f worldPosition = getWorldPosition();
 
@@ -247,7 +247,7 @@ void Aircraft::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 	{
 		// Interval expired: We can fire a new bullet
 		commands.push(mFireCommand);
-		playLocalSound(commands, isAllied() ? SoundEffect::AlliedGunfire : SoundEffect::EnemyGunfire);
+		playLocalSound(commands, isAllied() ? SoundEffects::ID::AlliedGunfire : SoundEffects::ID::EnemyGunfire);
 
 		mFireCountdown += mData.fireInterval / (mFireRateLevel + 1.f);
 		mIsFiring = false;
@@ -263,7 +263,7 @@ void Aircraft::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 	if (mIsLaunchingMissile)
 	{
 		commands.push(mMissileCommand);
-		playLocalSound(commands, SoundEffect::LaunchMissile);
+		playLocalSound(commands, SoundEffects::ID::LaunchMissile);
 
 		mIsLaunchingMissile = false;
 	}
@@ -271,7 +271,7 @@ void Aircraft::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
 
 void Aircraft::createBullets(SceneNode& node, const trmb::TextureHolder& textures) const
 {
-	Projectile::Type type = isAllied() ? Projectile::AlliedBullet : Projectile::EnemyBullet;
+	Projectile::Type type = isAllied() ? Projectile::Type::AlliedBullet : Projectile::Type::EnemyBullet;
 
 	switch (mSpreadLevel)
 	{
@@ -380,9 +380,10 @@ Textures::ID Aircraft::toTexture(const std::string& str) const
 {
 	Textures::ID ret;
 	bool success = false;
-	if (str == "Textures::Entities")
+	if (str == "Textures::ID::Entities")
 	{
-		ret = Textures::Entities;
+		// ALW - Should match str (fragile)
+		ret = Textures::ID::Entities;
 		success = true;
 	}
 

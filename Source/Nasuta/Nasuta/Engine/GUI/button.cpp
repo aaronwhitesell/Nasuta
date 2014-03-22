@@ -14,14 +14,14 @@ namespace GUI
 
 Button::Button(trmb::State::Context context, int buttonWidth, int buttonHeight)
 : mCallback()
-, mSprite(context.textures->get(Textures::Buttons))
-, mText("", context.fonts->get(Fonts::Main), 16)
+, mSprite(context.textures->get(Textures::ID::Buttons))
+, mText("", context.fonts->get(Fonts::ID::Main), 16)
 , mIsToggle(false)
 , mSounds(*context.sounds)
 , mButtonWidth(buttonWidth)
 , mButtonHeight(buttonHeight)
 {
-	changeTexture(Normal);
+	changeTexture(Type::Normal);
 
 	sf::FloatRect bounds = mSprite.getLocalBounds();
 	mText.setPosition(bounds.width / 2.f, bounds.height / 2.f);
@@ -52,28 +52,28 @@ void Button::select()
 {
 	Component::select();
 
-	changeTexture(Selected);
+	changeTexture(Type::Selected);
 }
 
 void Button::deselect()
 {
 	Component::deselect();
 
-	changeTexture(Normal);
+	changeTexture(Type::Normal);
 }
 
 void Button::press()
 {
 	Component::press();
 
-	changeTexture(Pressed);
+	changeTexture(Type::Pressed);
 }
 
 void Button::cancelPress()
 {
 	Component::cancelPress();
 
-	changeTexture(Selected);
+	changeTexture(Type::Selected);
 }
 
 void Button::activate()
@@ -88,7 +88,7 @@ void Button::activate()
 	if (!mIsToggle)
 		deactivate();
 
-	mSounds.play(SoundEffect::Button);
+	mSounds.play(SoundEffects::ID::Button);
 }
 
 void Button::deactivate()
@@ -97,9 +97,9 @@ void Button::deactivate()
 
 	// Reset texture to right one depending on if we are selected or not.
 	if (isSelected())
-		changeTexture(Selected);
+		changeTexture(Type::Selected);
 	else
-		changeTexture(Normal);
+		changeTexture(Type::Normal);
 }
 
 void Button::handleEvent(const sf::Event&)
@@ -118,7 +118,7 @@ void Button::changeTexture(Type buttonType)
 	// ALW - This fcn relies on the assumption that all buttons are rectangular,
 	// equal in size, and stacked vertically in the texture.
 	const int buttonOffset = mButtonHeight;
-	const sf::IntRect textureRect(0, buttonOffset * buttonType, mButtonWidth, mButtonHeight);
+	const sf::IntRect textureRect(0, buttonOffset * static_cast<int>(buttonType), mButtonWidth, mButtonHeight);
 	mSprite.setTextureRect(textureRect);
 }
 

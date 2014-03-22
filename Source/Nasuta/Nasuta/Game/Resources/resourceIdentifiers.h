@@ -4,7 +4,7 @@
 
 namespace Textures
 {
-	enum ID : unsigned int
+	enum class ID
 	{
 		Entities,
 		Grass,
@@ -20,7 +20,7 @@ namespace Textures
 
 namespace Fonts
 {
-	enum ID : unsigned int
+	enum class ID
 	{
 		Main,
 	};
@@ -28,7 +28,7 @@ namespace Fonts
 
 namespace Shaders
 {
-	enum ID : unsigned int
+	enum class ID
 	{
 		BrightnessPass,
 		DownSamplePass,
@@ -37,9 +37,9 @@ namespace Shaders
 	};
 }
 
-namespace SoundEffect
+namespace SoundEffects
 {
-	enum ID : unsigned int
+	enum class ID
 	{
 		AlliedGunfire,
 		EnemyGunfire,
@@ -53,7 +53,7 @@ namespace SoundEffect
 
 namespace Music
 {
-	enum ID : unsigned int
+	enum class ID
 	{
 		MenuTheme,
 		MissionTheme,

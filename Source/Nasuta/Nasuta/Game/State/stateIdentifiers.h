@@ -4,7 +4,7 @@
 
 namespace States
 {
-	enum ID : unsigned int
+	enum class ID
 	{
 		None,
 		Title,

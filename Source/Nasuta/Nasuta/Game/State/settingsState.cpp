@@ -11,7 +11,7 @@ SettingsState::SettingsState(trmb::StateStack& stack, trmb::State::Context conte
 : State(stack, context)
 , mGUIContainer(context.window)
 {
-	mBackgroundSprite.setTexture(context.textures->get(Textures::TitleScreen));
+	mBackgroundSprite.setTexture(context.textures->get(Textures::ID::TitleScreen));
 
 	// Build key binding buttons and labels
 	addButtonAndLabel(Player::MoveLeft,		 200.f, "Move Left",  context);

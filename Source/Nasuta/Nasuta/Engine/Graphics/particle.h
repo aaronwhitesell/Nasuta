@@ -8,7 +8,7 @@
 
 struct Particle
 {
-	enum Type
+	enum class Type
 	{
 		Propellant,
 		Smoke,

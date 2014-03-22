@@ -7,9 +7,10 @@
 #include <map>
 #include <string>
 
+
 namespace Music
 {
-	enum ID : unsigned int;
+	enum class ID;
 }
 
 class MusicPlayer : private sf::NonCopyable

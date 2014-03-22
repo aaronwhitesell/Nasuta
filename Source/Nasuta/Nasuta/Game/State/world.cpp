@@ -102,11 +102,11 @@ bool World::hasPlayerReachedEnd() const
 
 void World::loadTextures()
 {
-	mTextures.load(Textures::Entities, "Data/Textures/Entities.png");
-	mTextures.load(Textures::Grass, "Data/Textures/Grass.png");
-	mTextures.load(Textures::Explosion, "Data/Textures/Explosion.png");
-	mTextures.load(Textures::Particle, "Data/Textures/Particle.png");
-	mTextures.load(Textures::FinishLine, "Data/Textures/FinishLine.png");
+	mTextures.load(Textures::ID::Entities,   "Data/Textures/Entities.png");
+	mTextures.load(Textures::ID::Grass,      "Data/Textures/Grass.png");
+	mTextures.load(Textures::ID::Explosion,  "Data/Textures/Explosion.png");
+	mTextures.load(Textures::ID::Particle,   "Data/Textures/Particle.png");
+	mTextures.load(Textures::ID::FinishLine, "Data/Textures/FinishLine.png");
 }
 
 void World::adaptPlayerPosition()
@@ -180,7 +180,7 @@ void World::handleCollisions()
 			// Apply pickup effect to player, destroy projectile
 			pickup.apply(player);
 			pickup.destroy();
-			player.playLocalSound(mCommandQueue, SoundEffect::CollectPickup);
+			player.playLocalSound(mCommandQueue, SoundEffects::ID::CollectPickup);
 		}
 		else if (matchesCategories(pair, Category::EnemyAircraft, Category::AlliedProjectile)
 			  || matchesCategories(pair, Category::PlayerAircraft, Category::EnemyProjectile))
@@ -218,7 +218,7 @@ void World::buildScene()
 	}
 
 	// Prepare the tiled background
-	sf::Texture& GrassTexture = mTextures.get(Textures::Grass);
+	sf::Texture& GrassTexture = mTextures.get(Textures::ID::Grass);
 	GrassTexture.setRepeated(true);
 
 	float viewHeight = mWorldView.getSize().y;
@@ -231,17 +231,17 @@ void World::buildScene()
 	mSceneLayers[Background]->attachChild(std::move(GrassSprite));
 
 	// Add the finish line to the scene
-	sf::Texture& finishTexture = mTextures.get(Textures::FinishLine);
+	sf::Texture& finishTexture = mTextures.get(Textures::ID::FinishLine);
 	std::unique_ptr<SpriteNode> finishSprite(new SpriteNode(finishTexture));
 	finishSprite->setPosition(0.f, -76.f);
 	mSceneLayers[Background]->attachChild(std::move(finishSprite));
 
 	// Add particle node to the scene
-	std::unique_ptr<ParticleNode> smokeNode(new ParticleNode(Particle::Smoke, mTextures));
+	std::unique_ptr<ParticleNode> smokeNode(new ParticleNode(Particle::Type::Smoke, mTextures));
 	mSceneLayers[LowerAir]->attachChild(std::move(smokeNode));
 
 	// Add propellant particle node to the scene
-	std::unique_ptr<ParticleNode> propellantNode(new ParticleNode(Particle::Propellant, mTextures));
+	std::unique_ptr<ParticleNode> propellantNode(new ParticleNode(Particle::Type::Propellant, mTextures));
 	mSceneLayers[LowerAir]->attachChild(std::move(propellantNode));
 
 	// Add sound effect node
@@ -249,7 +249,7 @@ void World::buildScene()
 	mSceneGraph.attachChild(std::move(soundNode));
 
 	// Add player's aircraft
-	std::unique_ptr<Aircraft> player(new Aircraft(Aircraft::Eagle, mTextures, mFonts));
+	std::unique_ptr<Aircraft> player(new Aircraft(Aircraft::Type::Eagle, mTextures, mFonts));
 	mPlayerAircraft = player.get();
 	mPlayerAircraft->setPosition(mSpawnPosition);
 	mSceneLayers[UpperAir]->attachChild(std::move(player));
@@ -261,31 +261,31 @@ void World::buildScene()
 void World::addEnemies()
 {
 	// Add enemies to the spawn point container
-	addEnemy(Aircraft::Raptor,    0.f,  500.f);
-	addEnemy(Aircraft::Raptor,    0.f, 1000.f);
-	addEnemy(Aircraft::Raptor, +100.f, 1150.f);
-	addEnemy(Aircraft::Raptor, -100.f, 1150.f);
-	addEnemy(Aircraft::Avenger,  70.f, 1500.f);
-	addEnemy(Aircraft::Avenger, -70.f, 1500.f);
-	addEnemy(Aircraft::Avenger, -70.f, 1710.f);
-	addEnemy(Aircraft::Avenger,  70.f, 1700.f);
-	addEnemy(Aircraft::Avenger,  30.f, 1850.f);
-	addEnemy(Aircraft::Raptor,  300.f, 2200.f);
-	addEnemy(Aircraft::Raptor, -300.f, 2200.f);
-	addEnemy(Aircraft::Raptor,    0.f, 2200.f);
-	addEnemy(Aircraft::Raptor,    0.f, 2500.f);
-	addEnemy(Aircraft::Avenger,-300.f, 2700.f);
-	addEnemy(Aircraft::Avenger,-300.f, 2700.f);
-	addEnemy(Aircraft::Raptor,    0.f, 3000.f);
-	addEnemy(Aircraft::Raptor,  250.f, 3250.f);
-	addEnemy(Aircraft::Raptor, -250.f, 3250.f);
-	addEnemy(Aircraft::Avenger,   0.f, 3500.f);
-	addEnemy(Aircraft::Avenger,   0.f, 3700.f);
-	addEnemy(Aircraft::Raptor,    0.f, 3800.f);
-	addEnemy(Aircraft::Avenger,   0.f, 4000.f);
-	addEnemy(Aircraft::Avenger,-200.f, 4200.f);
-	addEnemy(Aircraft::Raptor,  200.f, 4200.f);
-	addEnemy(Aircraft::Raptor,    0.f, 4400.f);
+	addEnemy(Aircraft::Type::Raptor,    0.f,  500.f);
+	addEnemy(Aircraft::Type::Raptor,    0.f, 1000.f);
+	addEnemy(Aircraft::Type::Raptor, +100.f, 1150.f);
+	addEnemy(Aircraft::Type::Raptor, -100.f, 1150.f);
+	addEnemy(Aircraft::Type::Avenger,  70.f, 1500.f);
+	addEnemy(Aircraft::Type::Avenger, -70.f, 1500.f);
+	addEnemy(Aircraft::Type::Avenger, -70.f, 1710.f);
+	addEnemy(Aircraft::Type::Avenger,  70.f, 1700.f);
+	addEnemy(Aircraft::Type::Avenger,  30.f, 1850.f);
+	addEnemy(Aircraft::Type::Raptor,  300.f, 2200.f);
+	addEnemy(Aircraft::Type::Raptor, -300.f, 2200.f);
+	addEnemy(Aircraft::Type::Raptor,    0.f, 2200.f);
+	addEnemy(Aircraft::Type::Raptor,    0.f, 2500.f);
+	addEnemy(Aircraft::Type::Avenger,-300.f, 2700.f);
+	addEnemy(Aircraft::Type::Avenger,-300.f, 2700.f);
+	addEnemy(Aircraft::Type::Raptor,    0.f, 3000.f);
+	addEnemy(Aircraft::Type::Raptor,  250.f, 3250.f);
+	addEnemy(Aircraft::Type::Raptor, -250.f, 3250.f);
+	addEnemy(Aircraft::Type::Avenger,   0.f, 3500.f);
+	addEnemy(Aircraft::Type::Avenger,   0.f, 3700.f);
+	addEnemy(Aircraft::Type::Raptor,    0.f, 3800.f);
+	addEnemy(Aircraft::Type::Avenger,   0.f, 4000.f);
+	addEnemy(Aircraft::Type::Avenger,-200.f, 4200.f);
+	addEnemy(Aircraft::Type::Raptor,  200.f, 4200.f);
+	addEnemy(Aircraft::Type::Raptor,    0.f, 4400.f);
 
 	// Sort all enemies according to their y value, such that lower enemies are checked first for spawning
 	std::sort(mEnemySpawnPoints.begin(), mEnemySpawnPoints.end(), [] (SpawnPoint lhs, SpawnPoint rhs)

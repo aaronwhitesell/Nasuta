@@ -26,7 +26,7 @@ struct AircraftMover
 };
 
 Player::Player()
-: mCurrentMissionStatus(MissionRunning)
+: mCurrentMissionStatus(MissionStatus::MissionRunning)
 {
 	// Set initial key bindings
 	mKeyboardBinding[sf::Keyboard::A] = MoveLeft;

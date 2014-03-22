@@ -8,7 +8,7 @@
 
 TextNode::TextNode(const trmb::FontHolder& fonts, const std::string& text)
 {
-	mText.setFont(fonts.get(Fonts::Main));
+	mText.setFont(fonts.get(Fonts::ID::Main));
 	mText.setCharacterSize(20);
 	setString(text);
 }

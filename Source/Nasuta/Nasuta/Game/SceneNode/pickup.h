@@ -40,7 +40,7 @@ protected:
 private:
 	std::string				       toString(Type type) const;
 	std::function<void(Aircraft&)> toAction(const std::string& str) const;
-	Textures::ID			       toTexture(const std::string& str) const;
+	Textures::ID				   toTexture(const std::string& str) const;
 	void					       readXML(Type type);
 
 
