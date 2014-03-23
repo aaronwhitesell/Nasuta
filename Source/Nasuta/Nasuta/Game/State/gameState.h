@@ -2,7 +2,6 @@
 #define GAME_STATE_H
 
 #include "world.h"
-#include "../player.h"
 
 #include "Trambo/States/state.h"
 
@@ -20,6 +19,8 @@ namespace trmb
 {
 	class StateStack;
 }
+
+class player;
 
 class GameState : public trmb::State
 {

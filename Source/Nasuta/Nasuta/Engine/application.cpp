@@ -11,6 +11,10 @@
 
 #include "Trambo/States/state.h"
 
+#include <SFML/System/Clock.hpp>
+#include <SFML/Window/Event.hpp>
+#include <SFML/Window/VideoMode.hpp>
+
 #include <string>
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
@@ -31,8 +35,19 @@ Application::Application()
 
 	mFonts.load(Fonts::ID::Main, "Data/Fonts/Sansation.ttf");
 
-	mTextures.load(Textures::ID::TitleScreen,	"Data/Textures/TitleScreen.png");
-	mTextures.load(Textures::ID::Buttons,		"Data/Textures/Buttons.png");
+	mTextures.load(Textures::ID::TitleScreen, "Data/Textures/TitleScreen.png");
+	mTextures.load(Textures::ID::Buttons,	  "Data/Textures/Buttons.png");
+
+	mMusic.load(Music::ID::MenuTheme,    "Data/Music/MenuTheme.ogg");
+	mMusic.load(Music::ID::MissionTheme, "Data/Music/MissionTheme.ogg");
+
+	mSounds.load(SoundEffects::ID::AlliedGunfire, "Data/Sound/AlliedGunfire.wav");
+	mSounds.load(SoundEffects::ID::EnemyGunfire,  "Data/Sound/EnemyGunfire.wav");
+	mSounds.load(SoundEffects::ID::Explosion1,    "Data/Sound/Explosion1.wav");
+	mSounds.load(SoundEffects::ID::Explosion2,    "Data/Sound/Explosion2.wav");
+	mSounds.load(SoundEffects::ID::LaunchMissile, "Data/Sound/LaunchMissile.wav");
+	mSounds.load(SoundEffects::ID::CollectPickup, "Data/Sound/CollectPickup.wav");
+	mSounds.load(SoundEffects::ID::Button,        "Data/Sound/Button.wav");
 
 	mStatisticsText.setFont(mFonts.get(Fonts::ID::Main));
 	mStatisticsText.setPosition(5.f, 5.f);

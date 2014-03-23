@@ -7,12 +7,24 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/System/Vector2.hpp>
 
 #include <functional>
 #include <memory>
 #include <string>
-#include <vector>
 
+
+namespace sf
+{
+	class Event;
+	class RenderTarget;
+	class RenderStates;
+}
+
+namespace trmb
+{
+	class SoundPlayer;
+}
 
 namespace GUI
 {
@@ -60,7 +72,7 @@ private:
 	sf::Sprite				mSprite;
 	sf::Text				mText;
 	bool					mIsToggle;			// The button remains pressed (active) until explicitly changed (supports poll method).
-	SoundPlayer&			mSounds;
+	trmb::SoundPlayer&		mSounds;
 	int                     mButtonWidth;
 	int                     mButtonHeight;
 };

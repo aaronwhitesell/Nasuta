@@ -1,8 +1,9 @@
 #include "soundNode.h"
-#include "../Sound/soundPlayer.h"
+
+#include "Trambo/Sounds/soundPlayer.h"
 
 
-SoundNode::SoundNode(SoundPlayer& player)
+SoundNode::SoundNode(trmb::SoundPlayer& player)
 : SceneNode()
 , mSounds(player)
 {

@@ -1,8 +1,9 @@
 #include "button.h"
 #include "../utility.h"
-#include "../Sound/soundPlayer.h"
 
 #include "../../Game/Resources/resourceIdentifiers.h"
+
+#include "Trambo/Sounds/soundPlayer.h"
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>

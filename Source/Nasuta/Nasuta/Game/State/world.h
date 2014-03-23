@@ -4,15 +4,12 @@
 #include "../SceneNode/aircraft.h"
 
 #include "../../Engine/Command/commandQueue.h"
-#include "../../Engine/Command/command.h"
-#include "../../Engine/Graphics/bloomEffect.h"
+//#include "../../Engine/Graphics/bloomEffect.h"
 #include "../../Engine/SceneNode/sceneNode.h"
-#include "../../Engine/SceneNode/spriteNode.h"
-#include "../../Engine/Sound/soundPlayer.h"
 
 #include "Trambo/Resources/resourceHolder.h"
 
-#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/RenderTexture.hpp>
 #include <SFML/Graphics/View.hpp>
 #include <SFML/System/NonCopyable.hpp>
 
@@ -20,16 +17,21 @@
 #include <queue>
 
 
-// Forward declaration
 namespace sf
 {
 	class RenderTarget;
+	class Time;
+}
+
+namespace trmb
+{
+	class SoundPlayer;
 }
 
 class World : private sf::NonCopyable
 {
 public:
-										World(sf::RenderTarget& outputTarget, trmb::FontHolder& fonts,  SoundPlayer& sounds);
+										World(sf::RenderTarget& outputTarget, trmb::FontHolder& fonts,  trmb::SoundPlayer& sounds);
 
 	void								update(sf::Time dt);
 	void								draw();
@@ -87,7 +89,7 @@ private:
 	sf::View							mWorldView;
 	trmb::TextureHolder					mTextures;
 	trmb::FontHolder&					mFonts;
-	SoundPlayer&						mSounds;
+	trmb::SoundPlayer&					mSounds;
 	
 	SceneNode							mSceneGraph;
 	std::array<SceneNode*, LayerCount>	mSceneLayers;

@@ -1,12 +1,11 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "Sound/musicPlayer.h"
-#include "Sound/soundPlayer.h"
-
 #include "../Game/player.h"
 
 #include "Trambo/Resources/resourceHolder.h"
+#include "Trambo/Sounds/musicPlayer.h"
+#include "Trambo/Sounds/soundPlayer.h"
 #include "Trambo/States/stateStack.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -38,8 +37,8 @@ private:
 	trmb::FontHolder		mFonts;
 	Player					mPlayer;
 
-	MusicPlayer				mMusic;
-	SoundPlayer				mSounds;
+	trmb::MusicPlayer		mMusic;
+	trmb::SoundPlayer		mSounds;
 	trmb::StateStack		mStateStack;
 
 	sf::Text				mStatisticsText;

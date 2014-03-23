@@ -98,8 +98,6 @@
     <ClInclude Include="Engine\SceneNode\soundNode.h" />
     <ClInclude Include="Engine\SceneNode\spriteNode.h" />
     <ClInclude Include="Engine\SceneNode\textNode.h" />
-    <ClInclude Include="Engine\Sound\musicPlayer.h" />
-    <ClInclude Include="Engine\Sound\soundPlayer.h" />
     <ClInclude Include="Engine\utility.h" />
     <ClInclude Include="Game\player.h" />
     <ClInclude Include="Game\Resources\resourceIdentifiers.h" />
@@ -135,8 +133,6 @@
     <ClCompile Include="Engine\SceneNode\soundNode.cpp" />
     <ClCompile Include="Engine\SceneNode\spriteNode.cpp" />
     <ClCompile Include="Engine\SceneNode\textNode.cpp" />
-    <ClCompile Include="Engine\Sound\musicPlayer.cpp" />
-    <ClCompile Include="Engine\Sound\soundPlayer.cpp" />
     <ClCompile Include="Engine\utility.cpp" />
     <ClCompile Include="Game\player.cpp" />
     <ClCompile Include="Game\SceneNode\aircraft.cpp" />

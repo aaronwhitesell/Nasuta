@@ -6,7 +6,6 @@
 #include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Text.hpp>
 
 
 namespace sf

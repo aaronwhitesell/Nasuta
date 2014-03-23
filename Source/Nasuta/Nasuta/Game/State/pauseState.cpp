@@ -4,11 +4,13 @@
 
 #include "../../Engine/utility.h"
 #include "../../Engine/GUI/button.h"
-#include "../../Engine/Sound/musicPlayer.h"
+
+#include "Trambo/Sounds/musicPlayer.h"
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Event.hpp>
 
 

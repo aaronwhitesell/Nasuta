@@ -3,18 +3,29 @@
 #include "../SceneNode/pickup.h"
 #include "../SceneNode/projectile.h"
 
+#include "../../Engine/Command/command.h"
+#include "../../Engine/Command/category.h"
+#include "../../Engine/SceneNode/entity.h"
 #include "../../Engine/SceneNode/particleNode.h"
 #include "../../Engine/SceneNode/soundNode.h"
+#include "../../Engine/SceneNode/spriteNode.h"
 #include "../../Engine/SceneNode/textNode.h"
 
+#include "Trambo/Sounds/soundPlayer.h"
+
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/System/Vector2.hpp>
 
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <memory>
 
 
-World::World(sf::RenderTarget& outputTarget, trmb::FontHolder& fonts, SoundPlayer& sounds)
+World::World(sf::RenderTarget& outputTarget, trmb::FontHolder& fonts, trmb::SoundPlayer& sounds)
 : mTarget(outputTarget)
 , mSceneTexture()
 , mWorldView(outputTarget.getDefaultView())

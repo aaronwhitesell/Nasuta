@@ -3,22 +3,30 @@
 
 #include "sceneNode.h"
 
-#include "../../Game/Resources/resourceIdentifiers.h"
+#include <SFML/System/Vector2.hpp>
 
 
-class SoundPlayer;
+namespace trmb
+{
+	class SoundPlayer;
+}
+
+namespace SoundEffects
+{
+	enum class ID;
+}
 
 class SoundNode : public SceneNode
 {
 public:
-	explicit				SoundNode(SoundPlayer& player);
+	explicit				SoundNode(trmb::SoundPlayer& player);
 	
 	void					playSound(SoundEffects::ID sound, sf::Vector2f position);
 	virtual unsigned int	getCategory() const;
 
 
 private:
-	SoundPlayer&			mSounds;
+	trmb::SoundPlayer&		mSounds;
 };
 
 #endif

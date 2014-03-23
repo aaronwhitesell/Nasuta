@@ -4,10 +4,13 @@
 
 #include "../../Engine/utility.h"
 #include "../../Engine/GUI/button.h"
-#include "../../Engine/Sound/musicPlayer.h"
+
+#include "Trambo/Sounds/musicPlayer.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/View.hpp>
+#include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
 
@@ -71,4 +74,3 @@ bool MenuState::handleEvent(const sf::Event& event)
 	mGUIContainer.handleEvent(event);
 	return false;
 }
-

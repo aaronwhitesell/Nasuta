@@ -1,12 +1,16 @@
 #include "gameState.h"
 #include "stateIdentifiers.h"
+#include "../player.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/Sound/musicPlayer.h"
+#include "../../Engine/Command/commandQueue.h"
+
+#include "Trambo/Sounds/musicPlayer.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Window/Keyboard.hpp>
 
 
 GameState::GameState(trmb::StateStack& stack, trmb::State::Context context)

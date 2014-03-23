@@ -21,9 +21,6 @@
     <Filter Include="Header Files\Engine\SceneNode">
       <UniqueIdentifier>{da43a494-aeb0-4849-bd9c-edf8b0ab4a82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\Sound">
-      <UniqueIdentifier>{14f9ba3d-044f-4fa8-b1fe-8100e08de1b0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{1e66ca88-1b95-4002-acbd-da4db2d098cf}</UniqueIdentifier>
     </Filter>
@@ -50,9 +47,6 @@
     </Filter>
     <Filter Include="Source Files\Engine\GUI">
       <UniqueIdentifier>{f60452c3-a2d5-4635-bf96-cdb929ef6f1e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Sound">
-      <UniqueIdentifier>{05460d66-a153-486a-b5e1-7bd71a479ba5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\SceneNode">
       <UniqueIdentifier>{c5a19d8b-98e6-4697-961b-4610d92213a3}</UniqueIdentifier>
@@ -130,12 +124,6 @@
     </ClInclude>
     <ClInclude Include="Engine\SceneNode\sceneNode.h">
       <Filter>Header Files\Engine\SceneNode</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Sound\musicPlayer.h">
-      <Filter>Header Files\Engine\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Sound\soundPlayer.h">
-      <Filter>Header Files\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Engine\application.h">
       <Filter>Header Files\Engine</Filter>
@@ -240,12 +228,6 @@
     </ClCompile>
     <ClCompile Include="Engine\SceneNode\textNode.cpp">
       <Filter>Source Files\Engine\SceneNode</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Sound\soundPlayer.cpp">
-      <Filter>Source Files\Engine\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Sound\musicPlayer.cpp">
-      <Filter>Source Files\Engine\Sound</Filter>
     </ClCompile>
     <ClCompile Include="Engine\application.cpp">
       <Filter>Source Files\Engine</Filter>
