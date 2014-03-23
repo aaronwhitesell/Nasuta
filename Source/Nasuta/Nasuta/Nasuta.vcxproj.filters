@@ -80,9 +80,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Graphics\animation.h">
-      <Filter>Header Files\Engine\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Graphics\bloomEffect.h">
       <Filter>Header Files\Engine\Graphics</Filter>
     </ClInclude>
@@ -188,9 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Graphics\postEffect.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Graphics\animation.cpp">
       <Filter>Source Files\Engine\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Graphics\bloomEffect.cpp">

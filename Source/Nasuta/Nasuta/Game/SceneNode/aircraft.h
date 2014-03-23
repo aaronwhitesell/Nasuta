@@ -4,10 +4,10 @@
 #include "projectile.h"
 
 #include "../../Engine/Command/command.h"
-#include "../../Engine/Graphics/animation.h"
 #include "../../Engine/SceneNode/entity.h"
 #include "../../Engine/SceneNode/textNode.h"
 
+#include "Trambo/Animations/animation.h"
 #include "Trambo/Resources/resourceHolder.h"
 
 #include <SFML/Graphics/Sprite.hpp>
@@ -91,7 +91,7 @@ private:
 private:
 	Type					mType;
 	sf::Sprite				mSprite;
-	Animation				mExplosion;
+	trmb::Animation			mExplosion;
 	Command					mFireCommand;
 	Command					mMissileCommand;
 	sf::Time				mFireCountdown;

@@ -82,7 +82,6 @@
     <ClInclude Include="Engine\Command\category.h" />
     <ClInclude Include="Engine\Command\command.h" />
     <ClInclude Include="Engine\Command\commandQueue.h" />
-    <ClInclude Include="Engine\Graphics\animation.h" />
     <ClInclude Include="Engine\Graphics\bloomEffect.h" />
     <ClInclude Include="Engine\Graphics\particle.h" />
     <ClInclude Include="Engine\Graphics\postEffect.h" />
@@ -118,7 +117,6 @@
     <ClCompile Include="Engine\application.cpp" />
     <ClCompile Include="Engine\Command\command.cpp" />
     <ClCompile Include="Engine\Command\commandQueue.cpp" />
-    <ClCompile Include="Engine\Graphics\animation.cpp" />
     <ClCompile Include="Engine\Graphics\bloomEffect.cpp" />
     <ClCompile Include="Engine\Graphics\postEffect.cpp" />
     <ClCompile Include="Engine\GUI\button.cpp" />

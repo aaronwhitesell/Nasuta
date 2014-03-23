@@ -1,5 +1,6 @@
 #include "utility.h"
-#include "Graphics/animation.h"
+
+#include "Trambo/Animations/animation.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -165,7 +166,7 @@ void centerOrigin(sf::Text& text)
 	text.setOrigin(std::floor(bounds.width / 2.f), std::floor(bounds.height / 2.f));
 }
 
-void centerOrigin(Animation& animation)
+void centerOrigin(trmb::Animation& animation)
 {
 	sf::FloatRect bounds = animation.getLocalBounds();
 	animation.setOrigin(std::floor(bounds.width / 2.f), std::floor(bounds.height / 2.f));
