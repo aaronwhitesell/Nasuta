@@ -1,7 +1,7 @@
 #include "settingsState.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/utility.h"
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
@@ -134,9 +134,9 @@ void SettingsState::updateLabels()
 	for (std::size_t i = 0; i < Player::ActionCount; ++i)
 	{
 		if (keyboardBindState[i].first && !mouseBindState[i].first)
-			mBindingLabels[i]->setText(toString(keyboardBindState[i].second));
+			mBindingLabels[i]->setText(trmb::toString(keyboardBindState[i].second));
 		else if (!keyboardBindState[i].first && mouseBindState[i].first)
-			mBindingLabels[i]->setText(toString(mouseBindState[i].second));
+			mBindingLabels[i]->setText(trmb::toString(mouseBindState[i].second));
 		else if (!keyboardBindState[i].first && !mouseBindState[i].first)
 			mBindingLabels[i]->setText("Unbound");
 		else

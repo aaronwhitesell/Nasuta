@@ -2,7 +2,7 @@
 #include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/utility.h"
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
@@ -19,7 +19,7 @@ TitleState::TitleState(trmb::StateStack& stack, trmb::State::Context context)
 
 	mText.setFont(context.fonts->get(Fonts::ID::Main));
 	mText.setString("Press any key to start");
-	centerOrigin(mText);
+	trmb::centerOrigin(mText);
 	mText.setPosition(sf::Vector2f(context.window->getSize() / 2u));
 }
 

@@ -1,10 +1,11 @@
 #include "projectile.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/utility.h"
 #include "../../Engine/SceneNode/emitterNode.h"
 
 #include "../../../../3rdParty/TinyXML2/tinyxml2.h"
+
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -23,7 +24,7 @@ Projectile::Projectile(Type type, const trmb::TextureHolder& textures)
 	mSprite.setTexture(textures.get(mData.texture));
 	mSprite.setTextureRect(mData.textureRect);
 
-	centerOrigin(mSprite);
+	trmb::centerOrigin(mSprite);
 
 	// Add particle system for missiles
 	if (isGuided())
@@ -42,7 +43,7 @@ Projectile::Projectile(Type type, const trmb::TextureHolder& textures)
 void Projectile::guideTowards(sf::Vector2f position)
 {
 	assert(isGuided());
-	mTargetDirection = unitVector(position - getWorldPosition());
+	mTargetDirection = trmb::unitVector(position - getWorldPosition());
 }
 
 bool Projectile::isGuided() const
@@ -56,11 +57,11 @@ void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands)
 	{
 		const float approachRate = 200.f;
 
-		sf::Vector2f newVelocity = unitVector(approachRate * dt.asSeconds() * mTargetDirection + getVelocity());
+		sf::Vector2f newVelocity = trmb::unitVector(approachRate * dt.asSeconds() * mTargetDirection + getVelocity());
 		newVelocity *= getMaxSpeed();
 		float angle = std::atan2(newVelocity.y, newVelocity.x);
 
-		setRotation(toDegree(angle) + 90.f);
+		setRotation(trmb::toDegree(angle) + 90.f);
 		setVelocity(newVelocity);
 	}
 

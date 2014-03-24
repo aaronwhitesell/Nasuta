@@ -3,7 +3,7 @@
 #include "../player.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/utility.h"
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -26,7 +26,7 @@ GameOverState::GameOverState(trmb::StateStack& stack, trmb::State::Context conte
 		mGameOverText.setString("Mission successful!");
 
 	mGameOverText.setCharacterSize(70);
-	centerOrigin(mGameOverText);
+	trmb::centerOrigin(mGameOverText);
 	mGameOverText.setPosition(0.5f * windowSize.x, 0.4f * windowSize.y);
 }
 

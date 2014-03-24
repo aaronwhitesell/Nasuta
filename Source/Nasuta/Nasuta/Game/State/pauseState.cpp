@@ -2,10 +2,10 @@
 #include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/utility.h"
 #include "../../Engine/GUI/button.h"
 
 #include "Trambo/Sounds/musicPlayer.h"
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -26,7 +26,7 @@ PauseState::PauseState(trmb::StateStack& stack, trmb::State::Context context)
 	mPausedText.setFont(font);
 	mPausedText.setString("Game Paused");
 	mPausedText.setCharacterSize(70);
-	centerOrigin(mPausedText);
+	trmb::centerOrigin(mPausedText);
 	mPausedText.setPosition(0.5f * windowSize.x, 0.4f * windowSize.y);
 
 	auto returnButton = std::make_shared<GUI::Button>(context, 200, 50);

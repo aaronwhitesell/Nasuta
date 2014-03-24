@@ -2,11 +2,12 @@
 #include "aircraft.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/utility.h"
 #include "../../Engine/Command/category.h"
 #include "../../Engine/Command/commandQueue.h"
 
 #include "../../../../3rdParty/TinyXML2/tinyxml2.h"
+
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RenderTarget.hpp>
 
@@ -23,7 +24,7 @@ Pickup::Pickup(Type type, const trmb::TextureHolder& textures)
 	mSprite.setTexture(textures.get(mData.texture));
 	mSprite.setTextureRect(mData.textureRect);
 
-	centerOrigin(mSprite);
+	trmb::centerOrigin(mSprite);
 }
 
 unsigned int Pickup::getCategory() const

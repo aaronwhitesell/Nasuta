@@ -2,11 +2,12 @@
 #include "pickup.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/utility.h"
 #include "../../Engine/Command/commandQueue.h"
 #include "../../Engine/SceneNode/soundNode.h"
 
 #include "../../../../3rdParty/TinyXML2/tinyxml2.h"
+
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -47,7 +48,7 @@ Aircraft::Aircraft(Type type, const trmb::TextureHolder& textures, const trmb::F
 	mExplosion.setNumFrames(16);
 	mExplosion.setDuration(sf::seconds(1));
 
-	centerOrigin(mSprite);
+	trmb::centerOrigin(mSprite);
 	centerOrigin(mExplosion);
 
 	mFireCommand.category = Category::SceneAirLayer;
@@ -106,7 +107,7 @@ void Aircraft::updateCurrent(sf::Time dt, CommandQueue& commands)
 		// Play explosion sound only once
 		if (!mPlayedExplosionSound)
 		{
-			SoundEffects::ID soundEffect = (randomInt(2) == 0) ? SoundEffects::ID::Explosion1 : SoundEffects::ID::Explosion2;
+			SoundEffects::ID soundEffect = (trmb::randomInt(2) == 0) ? SoundEffects::ID::Explosion1 : SoundEffects::ID::Explosion2;
 			playLocalSound(commands, soundEffect);
 
 			mPlayedExplosionSound = true;
@@ -218,7 +219,7 @@ void Aircraft::updateMovementPattern(sf::Time dt)
 		}
 
 		// Compute velocity from direction
-		float radians = toRadian(directions[mDirectionIndex].angle + 90.f);
+		float radians = trmb::toRadian(directions[mDirectionIndex].angle + 90.f);
 		float vx = getMaxSpeed() * std::cos(radians);
 		float vy = getMaxSpeed() * std::sin(radians);
 
@@ -230,7 +231,7 @@ void Aircraft::updateMovementPattern(sf::Time dt)
 
 void Aircraft::checkPickupDrop(CommandQueue& commands)
 {
-	if (!isAllied() && randomInt(3) == 0 && !mSpawnedPickup)
+	if (!isAllied() && trmb::randomInt(3) == 0 && !mSpawnedPickup)
 		commands.push(mDropPickupCommand);
 
 	mSpawnedPickup = true;
@@ -307,7 +308,7 @@ void Aircraft::createProjectile(SceneNode& node, Projectile::Type type, float xO
 
 void Aircraft::createPickup(SceneNode& node, const trmb::TextureHolder& textures) const
 {
-	auto type = static_cast<Pickup::Type>(randomInt(Pickup::TypeCount));
+	auto type = static_cast<Pickup::Type>(trmb::randomInt(Pickup::TypeCount));
 
 	std::unique_ptr<Pickup> pickup(new Pickup(type, textures));
 	pickup->setPosition(getWorldPosition());

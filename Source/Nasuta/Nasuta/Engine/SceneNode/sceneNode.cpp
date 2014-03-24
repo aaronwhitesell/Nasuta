@@ -1,9 +1,9 @@
 #include "sceneNode.h"
-#include "../utility.h"
 #include "../Command/command.h"
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
+#include "Trambo/Utilities/utility.h"
 
 #include <algorithm>
 #include <cassert>
@@ -170,5 +170,5 @@ bool collision(const SceneNode& lhs, const SceneNode& rhs)
 
 float distance(const SceneNode& lhs, const SceneNode& rhs)
 {
-	return length(lhs.getWorldPosition() - rhs.getWorldPosition());
+	return trmb::length(lhs.getWorldPosition() - rhs.getWorldPosition());
 }

@@ -1,9 +1,9 @@
 #include "button.h"
-#include "../utility.h"
 
 #include "../../Game/Resources/resourceIdentifiers.h"
 
 #include "Trambo/Sounds/soundPlayer.h"
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -36,7 +36,7 @@ void Button::setCallback(Callback callback)
 void Button::setText(const std::string& text)
 {
 	mText.setString(text);
-	centerOrigin(mText);
+	trmb::centerOrigin(mText);
 }
 
 void Button::setToggle(bool flag)

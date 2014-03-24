@@ -2,10 +2,10 @@
 #include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/utility.h"
 #include "../../Engine/GUI/button.h"
 
 #include "Trambo/Sounds/musicPlayer.h"
+#include "Trambo/Utilities/utility.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>

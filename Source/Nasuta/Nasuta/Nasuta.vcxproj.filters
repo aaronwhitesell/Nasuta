@@ -125,9 +125,6 @@
     <ClInclude Include="Engine\application.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\utility.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Game\SceneNode\projectile.h">
       <Filter>Header Files\Game\SceneNode</Filter>
     </ClInclude>
@@ -224,9 +221,6 @@
       <Filter>Source Files\Engine\SceneNode</Filter>
     </ClCompile>
     <ClCompile Include="Engine\application.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\utility.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Game\SceneNode\projectile.cpp">
