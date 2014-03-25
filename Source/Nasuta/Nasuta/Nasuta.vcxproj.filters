@@ -15,9 +15,6 @@
     <Filter Include="Header Files\Engine\Graphics">
       <UniqueIdentifier>{6e2742c1-2341-4d90-904f-4f67147c5e74}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\GUI">
-      <UniqueIdentifier>{634515f1-3ce9-4f58-9a8d-e4d11b0a0787}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\SceneNode">
       <UniqueIdentifier>{da43a494-aeb0-4849-bd9c-edf8b0ab4a82}</UniqueIdentifier>
     </Filter>
@@ -44,9 +41,6 @@
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
       <UniqueIdentifier>{de014f90-58f8-440d-8bad-637e6e2958f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\GUI">
-      <UniqueIdentifier>{f60452c3-a2d5-4635-bf96-cdb929ef6f1e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\SceneNode">
       <UniqueIdentifier>{c5a19d8b-98e6-4697-961b-4610d92213a3}</UniqueIdentifier>
@@ -88,18 +82,6 @@
     </ClInclude>
     <ClInclude Include="Engine\Graphics\postEffect.h">
       <Filter>Header Files\Engine\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\GUI\button.h">
-      <Filter>Header Files\Engine\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\GUI\component.h">
-      <Filter>Header Files\Engine\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\GUI\container.h">
-      <Filter>Header Files\Engine\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\GUI\label.h">
-      <Filter>Header Files\Engine\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Engine\SceneNode\soundNode.h">
       <Filter>Header Files\Engine\SceneNode</Filter>
@@ -186,18 +168,6 @@
     </ClCompile>
     <ClCompile Include="Engine\Graphics\bloomEffect.cpp">
       <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GUI\label.cpp">
-      <Filter>Source Files\Engine\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GUI\button.cpp">
-      <Filter>Source Files\Engine\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GUI\component.cpp">
-      <Filter>Source Files\Engine\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GUI\container.cpp">
-      <Filter>Source Files\Engine\GUI</Filter>
     </ClCompile>
     <ClCompile Include="Engine\SceneNode\emitterNode.cpp">
       <Filter>Source Files\Engine\SceneNode</Filter>

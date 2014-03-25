@@ -23,7 +23,7 @@ SettingsState::SettingsState(trmb::StateStack& stack, trmb::State::Context conte
 
 	updateLabels();
 
-	auto backButton = std::make_shared<GUI::Button>(context, 200, 50);
+	auto backButton = std::make_shared<trmb::Button>(context, Fonts::ID::Main, SoundEffects::ID::Button, Textures::ID::Buttons, 200, 50);
 	backButton->setPosition(20.f, 520.f);
 	backButton->setText("Back");
 	backButton->setCallback(std::bind(&SettingsState::requestStackPop, this));
@@ -147,12 +147,12 @@ void SettingsState::updateLabels()
 
 void SettingsState::addButtonAndLabel(Player::Action action, float y, const std::string& text, trmb::State::Context context)
 {
-	mBindingButtons[action] = std::make_shared<GUI::Button>(context, 200, 50);
+	mBindingButtons[action] = std::make_shared<trmb::Button>(context, Fonts::ID::Main, SoundEffects::ID::Button, Textures::ID::Buttons, 200, 50);
 	mBindingButtons[action]->setPosition(20.f, y);
 	mBindingButtons[action]->setText(text);
 	mBindingButtons[action]->setToggle(true);
 
-	mBindingLabels[action] = std::make_shared<GUI::Label>("", *context.fonts);
+	mBindingLabels[action] = std::make_shared<trmb::Label>("", Fonts::ID::Main, *context.fonts);
 	mBindingLabels[action]->setPosition(240.f, y + 15.f);
 
 	mGUIContainer.pack(mBindingButtons[action]);

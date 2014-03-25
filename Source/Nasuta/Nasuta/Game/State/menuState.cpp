@@ -2,8 +2,7 @@
 #include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/GUI/button.h"
-
+#include "Trambo/GUI/button.h"
 #include "Trambo/Sounds/musicPlayer.h"
 #include "Trambo/Utilities/utility.h"
 
@@ -21,7 +20,7 @@ MenuState::MenuState(trmb::StateStack& stack, trmb::State::Context context)
 	sf::Texture& texture = context.textures->get(Textures::ID::TitleScreen);
 	mBackgroundSprite.setTexture(texture);
 
-	auto playButton = std::make_shared<GUI::Button>(context, 200, 50);
+	auto playButton = std::make_shared<trmb::Button>(context, Fonts::ID::Main, SoundEffects::ID::Button, Textures::ID::Buttons, 200, 50);
 	playButton->setPosition(20, 350);
 	playButton->setText("Play");
 	playButton->setCallback([this] ()
@@ -30,7 +29,7 @@ MenuState::MenuState(trmb::StateStack& stack, trmb::State::Context context)
 		requestStackPush(States::ID::Game);
 	});
 
-	auto settingsButton = std::make_shared<GUI::Button>(context, 200, 50);
+	auto settingsButton = std::make_shared<trmb::Button>(context, Fonts::ID::Main, SoundEffects::ID::Button, Textures::ID::Buttons, 200, 50);
 	settingsButton->setPosition(20, 400);
 	settingsButton->setText("Settings");
 	settingsButton->setCallback([this] ()
@@ -38,7 +37,7 @@ MenuState::MenuState(trmb::StateStack& stack, trmb::State::Context context)
 		requestStackPush(States::ID::Settings);
 	});
 
-	auto exitButton = std::make_shared<GUI::Button>(context, 200, 50);
+	auto exitButton = std::make_shared<trmb::Button>(context, Fonts::ID::Main, SoundEffects::ID::Button, Textures::ID::Buttons, 200, 50);
 	exitButton->setPosition(20, 450);
 	exitButton->setText("Exit");
 	exitButton->setCallback([this] ()

@@ -2,8 +2,7 @@
 #include "stateIdentifiers.h"
 #include "../Resources/resourceIdentifiers.h"
 
-#include "../../Engine/GUI/button.h"
-
+#include "Trambo/GUI/button.h"
 #include "Trambo/Sounds/musicPlayer.h"
 #include "Trambo/Utilities/utility.h"
 
@@ -29,7 +28,7 @@ PauseState::PauseState(trmb::StateStack& stack, trmb::State::Context context)
 	trmb::centerOrigin(mPausedText);
 	mPausedText.setPosition(0.5f * windowSize.x, 0.4f * windowSize.y);
 
-	auto returnButton = std::make_shared<GUI::Button>(context, 200, 50);
+	auto returnButton = std::make_shared<trmb::Button>(context, Fonts::ID::Main, SoundEffects::ID::Button, Textures::ID::Buttons, 200, 50);
 	returnButton->setPosition(0.5f * windowSize.x - 100, 0.4f * windowSize.y + 75);
 	returnButton->setText("Return");
 	returnButton->setCallback([this] ()
@@ -37,7 +36,7 @@ PauseState::PauseState(trmb::StateStack& stack, trmb::State::Context context)
 		requestStackPop();
 	});
 
-	auto backToMenuButton = std::make_shared<GUI::Button>(context, 200, 50);
+	auto backToMenuButton = std::make_shared<trmb::Button>(context, Fonts::ID::Main, SoundEffects::ID::Button, Textures::ID::Buttons, 200, 50);
 	backToMenuButton->setPosition(0.5f * windowSize.x - 100, 0.4f * windowSize.y + 125);
 	backToMenuButton->setText("Back to menu");
 	backToMenuButton->setCallback([this] ()

@@ -1,18 +1,17 @@
 #ifndef GAME_OVER_STATE_H
 #define GAME_OVER_STATE_H
 
-#include "../../Engine/GUI/container.h"
-
+#include "Trambo/GUI/container.h"
 #include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/System/Time.hpp>
 
 
 namespace sf
 {
 	class Event;
-	class Time;
 }
 
 namespace trmb

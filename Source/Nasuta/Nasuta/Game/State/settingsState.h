@@ -3,10 +3,9 @@
 
 #include "../player.h"
 
-#include "../../Engine/GUI/button.h"
-#include "../../Engine/GUI/container.h"
-#include "../../Engine/GUI/label.h"
-
+#include "Trambo/GUI/button.h"
+#include "Trambo/GUI/container.h"
+#include "Trambo/GUI/label.h"
 #include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
@@ -43,9 +42,9 @@ private:
 
 private:
 	sf::Sprite											mBackgroundSprite;
-	GUI::Container										mGUIContainer;
-	std::array<GUI::Button::Ptr, Player::ActionCount>	mBindingButtons;
-	std::array<GUI::Label::Ptr, Player::ActionCount>	mBindingLabels;
+	trmb::Container										mGUIContainer;
+	std::array<trmb::Button::Ptr, Player::ActionCount>	mBindingButtons;
+	std::array<trmb::Label::Ptr, Player::ActionCount>	mBindingLabels;
 };
 
 #endif

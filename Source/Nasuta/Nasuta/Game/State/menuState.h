@@ -1,8 +1,7 @@
 #ifndef MENU_STATE_H
 #define MENU_STATE_H
 
-#include "../../Engine/GUI/container.h"
-
+#include "Trambo/GUI/container.h"
 #include "Trambo/States/state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
@@ -30,7 +29,7 @@ public:
 
 private:
 	sf::Sprite				mBackgroundSprite;
-	GUI::Container			mGUIContainer;
+	trmb::Container			mGUIContainer;
 };
 
 #endif

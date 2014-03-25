@@ -52,6 +52,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\Trambo\Include;$(SolutionDir)..\3rdParty\SFML-2.1\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_VARIADIC_MAX=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -67,6 +68,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\Trambo\Include;$(SolutionDir)..\3rdParty\SFML-2.1\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_VARIADIC_MAX=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -85,10 +87,6 @@
     <ClInclude Include="Engine\Graphics\bloomEffect.h" />
     <ClInclude Include="Engine\Graphics\particle.h" />
     <ClInclude Include="Engine\Graphics\postEffect.h" />
-    <ClInclude Include="Engine\GUI\button.h" />
-    <ClInclude Include="Engine\GUI\component.h" />
-    <ClInclude Include="Engine\GUI\container.h" />
-    <ClInclude Include="Engine\GUI\label.h" />
     <ClInclude Include="Engine\Input\input.h" />
     <ClInclude Include="Engine\SceneNode\emitterNode.h" />
     <ClInclude Include="Engine\SceneNode\entity.h" />
@@ -118,10 +116,6 @@
     <ClCompile Include="Engine\Command\commandQueue.cpp" />
     <ClCompile Include="Engine\Graphics\bloomEffect.cpp" />
     <ClCompile Include="Engine\Graphics\postEffect.cpp" />
-    <ClCompile Include="Engine\GUI\button.cpp" />
-    <ClCompile Include="Engine\GUI\component.cpp" />
-    <ClCompile Include="Engine\GUI\container.cpp" />
-    <ClCompile Include="Engine\GUI\label.cpp" />
     <ClCompile Include="Engine\Input\input.cpp" />
     <ClCompile Include="Engine\SceneNode\emitterNode.cpp" />
     <ClCompile Include="Engine\SceneNode\entity.cpp" />
