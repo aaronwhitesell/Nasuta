@@ -45,3 +45,11 @@ SFML Configuration
 3. Project Properties -> Configuration Properties -> Linker -> Input -> Additional Depedencies
    (Debug) sfml-audio-d.lib, sfml-graphics-d.lib, sfml-system-d.lib, sfml-window-d.lib
    (Release) sfml-audio.lib, sfml-graphics.lib, sfml-system.lib, sfml-window.lib
+
+Variadic Templates
+VS2012 doesn't fully support variadic templates. There is no compiler support - instead, they are simulated in the library, up to 5 parameters by default. The actual number is determined by the macro _VARIADIC_MAX. Define a max of 10 in your project properties.
+
+Note: This issue arose when calling std::make_shared on trmb::button whose constructor has 6 parameters.  This is how I set _VARIADIC_MAX to 10 on a per project basis.
+
+1. Project Properties -> Configuration Properties -> C++ -> Preprocessor -> Preprocessor Definitions
+   (All Configurations) _VARIADIC_MAX=10
